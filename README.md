@@ -1,1 +1,1 @@
-# HalifaxExplosionUnity
+# Holographic Halifax Explosion Exhibit
