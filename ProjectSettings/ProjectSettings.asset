@@ -533,7 +533,7 @@ PlayerSettings:
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 00edc802879fd301
+  metroCertificateNotAfter: 800b4e28ec13d401
   metroApplicationDescription: NewHalifaxExplosion
   wsaImages: {}
   metroTileShortName: NewHalifaxExplosion

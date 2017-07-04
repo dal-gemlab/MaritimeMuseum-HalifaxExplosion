@@ -115470,7 +115470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1da8503c82837b42a37fac7b625f9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchorPrefab: {fileID: 1645086401711114, guid: a855181d98b5cab4e8feca38365ac554,
+  anchorPrefab: {fileID: 1645086401711114, guid: a86a38da01fcc504caded76c681e0512,
     type: 2}
   placementArrow: {fileID: 1311024365798796, guid: 0a53e9ec541ec6e47a8906d37a11c3b3,
     type: 2}

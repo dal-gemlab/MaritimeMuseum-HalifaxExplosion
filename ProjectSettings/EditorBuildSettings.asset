@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/HalifaxExplosion/Scenes/testScene.unity
     guid: 377ce6179b0596c4d87a484777af6152
-  - enabled: 1
+  - enabled: 0
     path: Assets/HalifaxExplosion/Scenes/newBuldings.unity
     guid: 8524b6e24a8df0c4c8fcc108c663ccfd
