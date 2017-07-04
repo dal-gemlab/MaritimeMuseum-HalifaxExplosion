@@ -71,7 +71,7 @@ public class HoloCapture  {
     }
 
 #if !UNITY_EDITOR
-    private async void sendImageOverNetwork(byte[] imagePNG)
+   /* private async void sendImageOverNetwork(byte[] imagePNG)
     {
 
         string serverAddr = UnityEngine.Networking.NetworkManager.singleton.networkAddress;
@@ -87,7 +87,7 @@ public class HoloCapture  {
         await messageWrite.StoreAsync();
 
         webSock.Close(1000, "Closed due to user request.");
-    }
+    }*/
 #endif
 
 

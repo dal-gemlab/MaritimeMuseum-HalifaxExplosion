@@ -114,7 +114,7 @@ public class TheSharingSocket
     //Yeah, it sucks.
     //TODO: What is the right directive?
 #elif !UNITY_EDITOR
-    private int connectionPort = 11000;
+    /*private int connectionPort = 11000;
     private string serverIP; 
     private byte[] dataBuffer;
     private int size;
@@ -215,7 +215,7 @@ public class TheSharingSocket
             }
         }
     }
-
+    */
 #endif
 
 }

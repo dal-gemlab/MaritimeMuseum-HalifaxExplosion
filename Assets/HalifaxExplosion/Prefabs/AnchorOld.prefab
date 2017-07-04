@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 120281964288419468}
   - component: {fileID: 114821956147373864}
   m_Layer: 0
-  m_Name: Anchor
+  m_Name: AnchorOld
   m_TagString: StageAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -120,6 +120,7 @@ public class StateManager : MonoBehaviour {
             //Final stage where people can interact with the exhibit
             case State.Show:
                 currentState = nextState;
+                Destroy(SpatialMappingManager.Instance.gameObject);
                 RemoveDragableCapability();
                 AddEnlargeCapability();
                 break;
