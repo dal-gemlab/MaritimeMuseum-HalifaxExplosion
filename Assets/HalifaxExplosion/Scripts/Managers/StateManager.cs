@@ -4,14 +4,14 @@ using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 using HoloToolkit.Unity.SpatialMapping;
 using HoloToolkit.Unity;
-
+using System;
 
 /// <summary>
 /// Halifax Explosion State Manager
 /// Class that control the flow from Spatial Mapping
 ///   to showing the buldings to public
 /// </summary>
-public class StateManager : MonoBehaviour {
+public class StateManager : MonoBehaviour, IInputClickHandler {
 
     //Prefab containing all the buldings
     public  GameObject anchorPrefab;
@@ -19,6 +19,10 @@ public class StateManager : MonoBehaviour {
     public GameObject placementArrow;
     //Name of the file used for saving relative positions of the models
     public string positionsFile;
+    //ARCamera from Vuforia
+    public GameObject arCam;
+    //Image target for vuforia
+    public GameObject imgTarget;
 
     
 
@@ -83,9 +87,16 @@ public class StateManager : MonoBehaviour {
             //Reason for -*right: origin is set at the top most right corner
             // of the model
             case State.DefineOrigin:
-                arrow = Instantiate(placementArrow);
+                //Start the vuforiaCam
+                arCam.SetActive(true);
+                //Enable the target
+                imgTarget.SetActive(true);
+                //Let the user click once the tag is in view
+                InputManager.Instance.AddGlobalListener(this.gameObject);
+
+                /*arrow = Instantiate(placementArrow);
                 //Register for the event raised once the user sets the points
-                arrow.GetComponent<TapToSetOrigin>().pointsSetEvent += PointsSet;
+                arrow.GetComponent<TapToSetOrigin>().pointsSetEvent += PointsSet;*/
                 break;
 
             //TODO: Remove this state. The anchor is placed when the origin is defined :)
@@ -132,9 +143,21 @@ public class StateManager : MonoBehaviour {
         currentState = State.SpatialMaping;
     }
 
+    public void OnInputClicked(InputClickedEventData eventData)
+    {
+        imgTarget.transform.GetChild(0).transform.parent = null;
+        //imgTarget.SetActive(false);
+        //arCam.SetActive(false);
+        Destroy(imgTarget);
+        Destroy(arCam);
+        Vuforia.VuforiaManager.Instance.Deinit();
+        ChangeState(State.Show);
+    }
+
     private void ScanningFinished()
     {
         ChangeState(State.DefineOrigin);
+        SpatialMappingManager.Instance.DrawVisualMeshes = false;
     }
 
     /// <summary>
@@ -249,5 +272,6 @@ public class StateManager : MonoBehaviour {
         }
         PositionFileHelper.SaveRelativePositions(transforms , filename);
     }
+
 
 }
