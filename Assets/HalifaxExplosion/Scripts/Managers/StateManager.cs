@@ -151,6 +151,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         Destroy(imgTarget);
         Destroy(arCam);
         Vuforia.VuforiaManager.Instance.Deinit();
+        InputManager.Instance.RemoveGlobalListener(this.gameObject);
         ChangeState(State.Show);
     }
 
