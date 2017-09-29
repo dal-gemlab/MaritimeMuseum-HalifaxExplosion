@@ -5,6 +5,7 @@ using HoloToolkit.Unity.InputModule;
 using HoloToolkit.Unity.SpatialMapping;
 using HoloToolkit.Unity;
 using System;
+using UnityEngine.VR.WSA;
 
 /// <summary>
 /// Halifax Explosion State Manager
@@ -93,10 +94,6 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 imgTarget.SetActive(true);
                 //Let the user click once the tag is in view
                 InputManager.Instance.AddGlobalListener(this.gameObject);
-
-                /*arrow = Instantiate(placementArrow);
-                //Register for the event raised once the user sets the points
-                arrow.GetComponent<TapToSetOrigin>().pointsSetEvent += PointsSet;*/
                 break;
 
             //TODO: Remove this state. The anchor is placed when the origin is defined :)
@@ -114,8 +111,10 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                         this.ChangeState(State.Show);
                     }
                 break;
-
+            
+            
             //Stage that allows the user to adjust all the buldings
+            //Not used for the Halfiax Explosion anymore
             case State.AdjustingBuldings:
                 currentState = nextState;
                 HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = false;
@@ -123,6 +122,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 break;
             
             //Once the adjustment is complete this stage should save the transforms
+            //Not used in the HFX explosion anymore
             case State.SaveBuildings:
                 //SaveBuldingsTransformToFile(positionsFile);
                 ChangeState(State.Show);
@@ -131,9 +131,12 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
             //Final stage where people can interact with the exhibit
             case State.Show:
                 currentState = nextState;
-                Destroy(SpatialMappingManager.Instance.gameObject);
+                //Destroy(SpatialMappingManager.Instance.gameObject);
+                //StartCoroutine(RemoveRBAfterTime(1));
                 RemoveDragableCapability();
                 AddEnlargeCapability();
+                AlignHorizon();
+                //HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = false;
                 break;
         }
     }
@@ -145,20 +148,35 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        imgTarget.transform.GetChild(0).transform.parent = null;
+        var anchor = imgTarget.transform.GetChild(0);
+        anchor.transform.parent = null;
         //imgTarget.SetActive(false);
         //arCam.SetActive(false);
         Destroy(imgTarget);
         Destroy(arCam);
         Vuforia.VuforiaManager.Instance.Deinit();
         InputManager.Instance.RemoveGlobalListener(this.gameObject);
+        //Move the buldings slighty up
+        anchor.Translate(new Vector3(0, 0.2f, 0));
+        //Enable gravity so the buildings can settle
+        GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
+        foreach (GameObject hologram in holograms)
+        {
+            hologram.GetComponent<Rigidbody>().useGravity = true;
+        }
+        var worldAnchor = anchor.gameObject.AddComponent<WorldAnchor>();
+        if (anchorManager.AnchorStore != null)
+        {
+            anchorManager.AnchorStore.Clear();
+            anchorManager.AnchorStore.Save(anchor.name.ToString(), worldAnchor);
+        }
         ChangeState(State.Show);
     }
 
     private void ScanningFinished()
     {
         ChangeState(State.DefineOrigin);
-        SpatialMappingManager.Instance.DrawVisualMeshes = false;
+        //SpatialMappingManager.Instance.DrawVisualMeshes = false;
     }
 
     /// <summary>
@@ -189,7 +207,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
 
     }
 
-    private void AddDragableCapability()
+    public void AddDragableCapability()
     {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         foreach(GameObject hologram in holograms)
@@ -218,16 +236,16 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
             hologram.AddComponent<ClickToExpand>();
         }
     }
-#if UNITY_ENDITOR
+#if UNITY_EDITOR
     private void OnGUI()
     {
         if (GUILayout.Button("Finish Placement"))
         {
             this.ChangeState(State.Show);
         }
-        if (GUILayout.Button("Clear Anchors"))
+        if (GUILayout.Button("Clear RBs"))
         {
-            anchorManager.AnchorStore.Clear();
+            StartCoroutine(RemoveRBAfterTime(1));
         }
         if (GUILayout.Button("Change to Adjusting"))
         {
@@ -236,6 +254,23 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         }
     }
 #endif
+
+    private void AlignHorizon()
+    {
+        GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
+        foreach (GameObject hologram in holograms)
+        {
+            hologram.GetComponent<Rigidbody>().useGravity = false;
+            hologram.GetComponent<Rigidbody>().isKinematic = true ;
+        }
+        return;
+        
+        foreach (GameObject hologram in holograms)
+        {
+            var rot = hologram.transform.rotation;
+            hologram.transform.rotation = Quaternion.Euler(0, rot.eulerAngles.y, 0);
+        }
+    }
 
     private void MatchPositionsFromFile(string filename)
     {
@@ -267,11 +302,22 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         //OK THIS IS UGGLY, TODO: change the helper class
         List<Transform> transforms = new List<Transform>(holograms.Length);
-        foreach(GameObject go in holograms)
+        foreach (GameObject go in holograms)
         {
             transforms.Add(go.transform);
         }
-        PositionFileHelper.SaveRelativePositions(transforms , filename);
+        PositionFileHelper.SaveRelativePositions(transforms, filename);
+    }
+
+    IEnumerator RemoveRBAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
+        foreach (GameObject hologram in holograms)
+        {
+            Destroy(hologram.GetComponent<Rigidbody>());
+        }
+        Destroy(SpatialMappingManager.Instance.gameObject);
     }
 
 
