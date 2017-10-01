@@ -47,7 +47,7 @@ public static class PositionFileHelper
         }
 #endif
         StreamReader sr = new StreamReader(stream);
-        string json = sr.ReadToEnd()
+        string json = sr.ReadToEnd();
         List<storeObject> objs = JsonUtility.FromJson<List<storeObject>>(json);
 #if UNITY_WP8 || UNITY_WP8_1 || UNITY_WSA || UNITY_WSA_8_0 || UNITY_WSA_8_1 || UNITY_WSA_10_0
         stream.Dispose();
