@@ -24,6 +24,8 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
     public GameObject arCam;
     //Image target for vuforia
     public GameObject imgTarget;
+    //The instructional text
+    public TextMesh instructionalText;
 
     
 
@@ -31,6 +33,9 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
     private WorldAnchorManager anchorManager;
     private GameObject anchor;
     private GameObject arrow;
+
+    private const string findText = "Please find the QR tag in the wood model";
+    private const string foundText = "QR Found, use the clicker";
 
     //Singleton implementation
     private static StateManager instance;
@@ -94,6 +99,12 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 imgTarget.SetActive(true);
                 //Let the user click once the tag is in view
                 InputManager.Instance.AddGlobalListener(this.gameObject);
+                //Sign up for Vuforia tracking state changes
+                var qrTag = GameObject.Find("ImageTarget");
+                qrTag.GetComponent<AnchorTrackableEventHandler>().OnAnchorTrackingChanged += QRTagTrackingChanged;
+                //Set-up the inst text
+                instructionalText.text = findText;
+
                 break;
 
             //TODO: Remove this state. The anchor is placed when the origin is defined :)
@@ -118,7 +129,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
             case State.AdjustingBuldings:
                 currentState = nextState;
                 HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = false;
-                AddDragableCapability();
+                AddManipulationCapability();
                 break;
             
             //Once the adjustment is complete this stage should save the transforms
@@ -133,12 +144,20 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 currentState = nextState;
                 //Destroy(SpatialMappingManager.Instance.gameObject);
                 //StartCoroutine(RemoveRBAfterTime(1));
-                RemoveDragableCapability();
+                RemoveManipulationCapability();
                 AddEnlargeCapability();
                 AlignHorizon();
                 //HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = false;
                 break;
         }
+    }
+
+    private void QRTagTrackingChanged(bool isTracked)
+    {
+        if (isTracked)
+            instructionalText.text = foundText;
+        else
+            instructionalText.text = findText;
     }
 
     private void InitializeStates()
@@ -170,6 +189,8 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
             anchorManager.AnchorStore.Clear();
             anchorManager.AnchorStore.Save(anchor.name.ToString(), worldAnchor);
         }
+        //Destroy the text
+        Destroy(instructionalText.gameObject);
         ChangeState(State.Show);
     }
 
@@ -207,17 +228,19 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
 
     }
 
-    public void AddDragableCapability()
+    public void AddManipulationCapability()
     {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         foreach(GameObject hologram in holograms)
         {
-            hologram.AddComponent<ManipulateToMove>();
+            ManipulateToMove cap = hologram.GetComponent<ManipulateToMove>();
+            if(cap == null)
+                hologram.AddComponent<ManipulateToMove>();
         }
     }
 
     
-    private void RemoveDragableCapability()
+    private void RemoveManipulationCapability()
     {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         foreach (GameObject hologram in holograms)
@@ -236,6 +259,8 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
             hologram.AddComponent<ClickToExpand>();
         }
     }
+
+    
 #if UNITY_EDITOR
     private void OnGUI()
     {
@@ -249,7 +274,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         }
         if (GUILayout.Button("Change to Adjusting"))
         {
-            AddDragableCapability();
+            AddManipulationCapability();
             this.ChangeState(State.AdjustingBuldings);
         }
     }

@@ -18,12 +18,15 @@ public class SpeechManager : MonoBehaviour {
     {
 
         var anchor = GameObject.Find("Anchor");
-
+        var childCount = anchor.transform.childCount;
         string s = "";
-        foreach(Transform g in anchor.GetComponentsInChildren<Transform>())
+        //foreach(Transform g in anchor.GetComponentsInChildren<Transform>())
+        for(int i = 0; i<childCount; i++)
         {
-            var t = g; ;
-            s += System.String.Format("Name: {3} \nx: {0} y: {1} z: {2}\n", t.localPosition.x, t.localPosition.y, t.localPosition.z, t.gameObject.name);
+            //var t = g; ;
+            var t = anchor.transform.GetChild(i);
+            s += System.String.Format("Name: {0} \nx: {1} y: {2} z: {3}\n", t.gameObject.name, t.localPosition.x, t.localPosition.y, t.localPosition.z );
+            s += System.String.Format("rx: {0} ry: {1}, rz: {2}\n", t.localRotation.eulerAngles.x, t.localRotation.eulerAngles.y, t.localRotation.eulerAngles.z);
             //Debug.LogFormat("Name: {3} \nx: {0} y: {1} z: {2}", t.localPosition.x, t.localPosition.y, t.localPosition.z, t.gameObject.name);
 
 
@@ -33,6 +36,14 @@ public class SpeechManager : MonoBehaviour {
 
     public void addDrag()
     {
-        StateManager.Instance.AddDragableCapability();
+        StateManager.Instance.AddManipulationCapability();
+        StateManager.Instance.manipulationMethod = StateManager.ManipulationMethod.Translate;
     }
+
+    public void addRotate()
+    {
+        StateManager.Instance.AddManipulationCapability();
+        StateManager.Instance.manipulationMethod = StateManager.ManipulationMethod.Rotate;
+    }
+
 }

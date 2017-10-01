@@ -19,8 +19,8 @@ public static class PositionFileHelper
 {
     public static List<Transform> GetRelativePositions(string filename)
     {
-        return null;
-        /*Stream stream = null;
+        
+        Stream stream = null;
 #if WINDOWS_UWP
 
         Task fileTask = new Task(
@@ -46,12 +46,9 @@ public static class PositionFileHelper
 
         }
 #endif
-
-        SharpSerializer serializer = new SharpSerializer(true);
-        
-        
-
-        List<storeObject> objs = (List<storeObject>)serializer.Deserialize(stream);
+        StreamReader sr = new StreamReader(stream);
+        string json = sr.ReadToEnd()
+        List<storeObject> objs = JsonUtility.FromJson<List<storeObject>>(json);
 #if UNITY_WP8 || UNITY_WP8_1 || UNITY_WSA || UNITY_WSA_8_0 || UNITY_WSA_8_1 || UNITY_WSA_10_0
         stream.Dispose();
 #else
@@ -69,13 +66,13 @@ public static class PositionFileHelper
         }
 
         return storedTransforms;
-        */
+        
     }
 
     public static bool SaveRelativePositions(List<Transform> transforms, string filename)
     {
-        return true;
-        /*List<storeObject> serList = new List<storeObject>();
+        
+        List<storeObject> serList = new List<storeObject>();
         foreach (Transform t in transforms)
         {
             float[] p = new float[3] { t.position.x, t.position.y, t.position.z };
@@ -102,22 +99,23 @@ public static class PositionFileHelper
             });
         fileTask.Start();
         fileTask.Wait();
+        StreamWriter s = new StreamWriter(stream);
+        string jsonTransforms = JsonUtility.ToJson(serList);
+        s.Write(jsonTransforms.ToCharArray());
+        stream.Dispose();
 
 #else
         Stream stream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
-#endif
-        SharpSerializer serializer = new SharpSerializer(true);
-        Debug.Log(serList[0].name);
-        serializer.Serialize(serList, stream);
-#if UNITY_WP8 || UNITY_WP8_1 || UNITY_WSA || UNITY_WSA_8_0 || UNITY_WSA_8_1 || UNITY_WSA_10_0 || WINDOWS_UWP
-        stream.Dispose();
-#else
+        StreamWriter s = new StreamWriter(stream);
+        string jsonTransforms = JsonUtility.ToJson(serList);
+        s.Write(jsonTransforms.ToCharArray());
         stream.Close();
 #endif
-        return true;*/
+        return true;
     }
 
 
+    [Serializable]
     private class storeObject
     {
         public string name { get; set; }
