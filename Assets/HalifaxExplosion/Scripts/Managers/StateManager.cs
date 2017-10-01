@@ -107,47 +107,14 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
 
                 break;
 
-            //TODO: Remove this state. The anchor is placed when the origin is defined :)
-            case State.PlacingAnchor:
-                currentState = nextState;
-                anchor = Instantiate(anchorPrefab);
-                //Means we have a store and we are inside the hololens
-                if(anchorManager.AnchorStore != null)
-                    if (anchorManager.AnchorStore.Load("Reference", anchor) != null)
-                    {
-                        Debug.Log("Anchor exists!");
-                        anchor.GetComponent<TapToSetAnchor>().AnchorExistsSkipStep();
-                        //Load positions from file (relative from the ancho origin)
-                        //MatchPositionsFromFile(positionsFile);
-                        this.ChangeState(State.Show);
-                    }
-                break;
             
-            
-            //Stage that allows the user to adjust all the buldings
-            //Not used for the Halfiax Explosion anymore
-            case State.AdjustingBuldings:
-                currentState = nextState;
-                HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = false;
-                AddManipulationCapability();
-                break;
-            
-            //Once the adjustment is complete this stage should save the transforms
-            //Not used in the HFX explosion anymore
-            case State.SaveBuildings:
-                //SaveBuldingsTransformToFile(positionsFile);
-                ChangeState(State.Show);
-                break;
-
+    
             //Final stage where people can interact with the exhibit
             case State.Show:
                 currentState = nextState;
-                //Destroy(SpatialMappingManager.Instance.gameObject);
-                //StartCoroutine(RemoveRBAfterTime(1));
                 RemoveManipulationCapability();
                 AddEnlargeCapability();
                 AlignHorizon();
-                //HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = false;
                 break;
         }
     }
@@ -177,12 +144,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         InputManager.Instance.RemoveGlobalListener(this.gameObject);
         //Move the buldings slighty up
         anchor.Translate(new Vector3(0, 0.2f, 0));
-        //Enable gravity so the buildings can settle
-        GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
-        foreach (GameObject hologram in holograms)
-        {
-            hologram.GetComponent<Rigidbody>().useGravity = true;
-        }
+
         var worldAnchor = anchor.gameObject.AddComponent<WorldAnchor>();
         if (anchorManager.AnchorStore != null)
         {
@@ -197,36 +159,9 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
     private void ScanningFinished()
     {
         ChangeState(State.DefineOrigin);
-        //SpatialMappingManager.Instance.DrawVisualMeshes = false;
+    
     }
-
-    /// <summary>
-    /// Event handler function that is called once the
-    /// reference points (origin and right) are set.
-    /// </summary>
-    /// <param name="points"></param>
-    private void PointsSet(List<Vector3> points)
-    {
-        Destroy(arrow);
-        var origin = points[0];
-        var xDirection = points[0];
-        anchor = Instantiate(anchorPrefab);
-        anchor.transform.position = origin;
-        //For now, but we need to define how we are adjusting/saving
-        //Look how it was done through the anchor store in the placing anchor state
-        //We can maybe set them in the editor using the spatial mapped data.
-        anchor.GetComponent<TapToSetAnchor>().AnchorExistsSkipStep();
-        ChangeState(State.Show);
-
-        //We cant simply use the two points because they are not parallel to the ground
-        //First, we need to project the direction onto the Y plane
-        Vector3 lookDirection = Vector3.ProjectOnPlane(xDirection, transform.up).normalized;
-        anchor.transform.rotation = Quaternion.LookRotation(lookDirection, transform.up);
-        //Look rotation expects the forward vector (look) so we compensate by rotating
-        //90 after we set the first rotation
-        anchor.transform.rotation *= Quaternion.Euler(0, -90, 0);
-
-    }
+    
 
     public void AddManipulationCapability()
     {
@@ -268,10 +203,6 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         {
             this.ChangeState(State.Show);
         }
-        if (GUILayout.Button("Clear RBs"))
-        {
-            StartCoroutine(RemoveRBAfterTime(1));
-        }
         if (GUILayout.Button("Change to Adjusting"))
         {
             AddManipulationCapability();
@@ -285,16 +216,11 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         foreach (GameObject hologram in holograms)
         {
-            hologram.GetComponent<Rigidbody>().useGravity = false;
-            hologram.GetComponent<Rigidbody>().isKinematic = true ;
-        }
-        return;
-        
-        foreach (GameObject hologram in holograms)
-        {
             var rot = hologram.transform.rotation;
             hologram.transform.rotation = Quaternion.Euler(0, rot.eulerAngles.y, 0);
         }
+
+        return;
     }
 
     private void MatchPositionsFromFile(string filename)
@@ -332,17 +258,6 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
             transforms.Add(go.transform);
         }
         PositionFileHelper.SaveRelativePositions(transforms, filename);
-    }
-
-    IEnumerator RemoveRBAfterTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-        GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
-        foreach (GameObject hologram in holograms)
-        {
-            Destroy(hologram.GetComponent<Rigidbody>());
-        }
-        Destroy(SpatialMappingManager.Instance.gameObject);
     }
 
 
