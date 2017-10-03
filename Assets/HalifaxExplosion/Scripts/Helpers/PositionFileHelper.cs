@@ -48,7 +48,15 @@ public static class PositionFileHelper
 #endif
         StreamReader sr = new StreamReader(stream);
         string json = sr.ReadToEnd();
-        List<storeObject> objs = JsonUtility.FromJson<List<storeObject>>(json);
+        List<storeObject> objs = new List<storeObject>();
+        foreach(var line in json.Split('\n'))
+        {
+            if(line.Length > 3)
+                objs.Add(JsonUtility.FromJson<storeObject>(line.ToString()));
+        }
+
+
+        
 #if UNITY_WP8 || UNITY_WP8_1 || UNITY_WSA || UNITY_WSA_8_0 || UNITY_WSA_8_1 || UNITY_WSA_10_0
         stream.Dispose();
 #else
@@ -107,8 +115,11 @@ public static class PositionFileHelper
 #else
         Stream stream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
         StreamWriter s = new StreamWriter(stream);
-        string jsonTransforms = JsonUtility.ToJson(serList);
+        string jsonTransforms = "";
+        foreach (var obj in serList)
+            jsonTransforms += JsonUtility.ToJson(obj) + '\n';
         s.Write(jsonTransforms.ToCharArray());
+        s.Flush();
         stream.Close();
 #endif
         return true;
@@ -116,11 +127,11 @@ public static class PositionFileHelper
 
 
     [Serializable]
-    private class storeObject
+    public class storeObject
     {
-        public string name { get; set; }
-        public float[] position { get; set; }
-        public float[] rotation { get; set; }
+        public string name;
+        public float[] position;
+        public float[] rotation;
 
     }
 }

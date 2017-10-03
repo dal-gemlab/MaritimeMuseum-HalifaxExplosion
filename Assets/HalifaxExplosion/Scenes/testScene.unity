@@ -325,6 +325,40 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+  - Keyword: Save
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6405}
+          m_MethodName: SaveBuldingsTransformToFile
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - Keyword: Load
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6405}
+          m_MethodName: MatchPositionsFromFile
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
   IsGlobalListener: 1
 --- !u!114 &457
 MonoBehaviour:
@@ -345,6 +379,10 @@ MonoBehaviour:
     KeyCode: 112
   - Keyword: Drag
     KeyCode: 100
+  - Keyword: Save
+    KeyCode: 115
+  - Keyword: Load
+    KeyCode: 108
 --- !u!1 &484
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,7 +2769,7 @@ MonoBehaviour:
   positionsFile: positions.dat
   arCam: {fileID: 47269798}
   imgTarget: {fileID: 227653713}
-  instructionalText: {fileID: 0}
+  instructionalText: {fileID: 277159655}
 --- !u!114 &6406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3018,6 +3056,17 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
   m_PrefabInternal: {fileID: 644728734}
+--- !u!114 &227653720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 227653713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfdde1d0b715cb74facfdd587283199b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &277159654
 Prefab:
   m_ObjectHideFlags: 0
@@ -3084,6 +3133,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfdc7f60d7205c84f82a4806a5352d60, type: 2}
   m_IsPrefabParent: 0
+--- !u!102 &277159655 stripped
+TextMesh:
+  m_PrefabParentObject: {fileID: 102000010767390410, guid: bfdc7f60d7205c84f82a4806a5352d60,
+    type: 2}
+  m_PrefabInternal: {fileID: 277159654}
 --- !u!1001 &644728734
 Prefab:
   m_ObjectHideFlags: 0
@@ -3404,6 +3458,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -1.358608
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
   m_IsPrefabParent: 0
@@ -3613,6 +3671,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []

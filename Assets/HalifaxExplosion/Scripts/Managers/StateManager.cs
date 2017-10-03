@@ -76,7 +76,8 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         //Default method in edit is translate
         manipulationMethod = ManipulationMethod.Translate;
         Debug.Log("State Manager Initialized");
-        anchorManager = WorldAnchorManager.Instance;
+
+        anchorManager =  WorldAnchorManager.Instance;
     }
          
 
@@ -223,9 +224,9 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         return;
     }
 
-    private void MatchPositionsFromFile(string filename)
+    public void MatchPositionsFromFile()
     {
-        List<Transform> positions = PositionFileHelper.GetRelativePositions(filename);
+        List<Transform> positions = PositionFileHelper.GetRelativePositions(positionsFile);
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
 
         if (positions == null)
@@ -248,7 +249,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
 
     }
 
-    private void SaveBuldingsTransformToFile(string filename)
+    public void SaveBuldingsTransformToFile()
     {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         //OK THIS IS UGGLY, TODO: change the helper class
@@ -257,7 +258,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         {
             transforms.Add(go.transform);
         }
-        PositionFileHelper.SaveRelativePositions(transforms, filename);
+        PositionFileHelper.SaveRelativePositions(transforms, positionsFile);
     }
 
 
