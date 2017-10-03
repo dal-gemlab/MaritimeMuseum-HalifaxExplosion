@@ -46,11 +46,15 @@ public static class PositionFileHelper
 
         }
 #endif
+        if (stream == null)
+            return null;
+
         StreamReader sr = new StreamReader(stream);
         string json = sr.ReadToEnd();
         List<storeObject> objs = new List<storeObject>();
         foreach(var line in json.Split('\n'))
         {
+            //Here could be >1...
             if(line.Length > 3)
                 objs.Add(JsonUtility.FromJson<storeObject>(line.ToString()));
         }
@@ -108,8 +112,11 @@ public static class PositionFileHelper
         fileTask.Start();
         fileTask.Wait();
         StreamWriter s = new StreamWriter(stream);
-        string jsonTransforms = JsonUtility.ToJson(serList);
+        string jsonTransforms = "";
+        foreach (var obj in serList)
+            jsonTransforms += JsonUtility.ToJson(obj) + '\n';
         s.Write(jsonTransforms.ToCharArray());
+        s.Flush();
         stream.Dispose();
 
 #else

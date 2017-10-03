@@ -71,13 +71,15 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
     {
         InitializeStates();
         //Register for the event that signals the end of the spatial mapping
-        SpatialMappingManager.Instance.gameObject
-            .GetComponent<SpatialMappingLimiter>().finishedMappingEvent += ScanningFinished;
+        //Not using spatial mapping anymore
+        //SpatialMappingManager.Instance.gameObject
+        //   .GetComponent<SpatialMappingLimiter>().finishedMappingEvent += ScanningFinished;
         //Default method in edit is translate
         manipulationMethod = ManipulationMethod.Translate;
         Debug.Log("State Manager Initialized");
 
         anchorManager =  WorldAnchorManager.Instance;
+        ChangeState(State.DefineOrigin);
     }
          
 
