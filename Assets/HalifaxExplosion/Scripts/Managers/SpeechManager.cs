@@ -10,7 +10,8 @@ public class SpeechManager : MonoBehaviour {
 
     public void ResetScene()
     {
-        WorldAnchorManager.Instance.AnchorStore.Clear();
+        if(WorldAnchorManager.Instance.AnchorStore != null)
+            WorldAnchorManager.Instance.AnchorStore.Clear();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -34,13 +35,13 @@ public class SpeechManager : MonoBehaviour {
         Debug.Log(s);
     }
 
-    public void addDrag()
+    public void AddDrag()
     {
         StateManager.Instance.AddManipulationCapability();
         StateManager.Instance.manipulationMethod = StateManager.ManipulationMethod.Translate;
     }
 
-    public void addRotate()
+    public void AddRotate()
     {
         StateManager.Instance.AddManipulationCapability();
         StateManager.Instance.manipulationMethod = StateManager.ManipulationMethod.Rotate;

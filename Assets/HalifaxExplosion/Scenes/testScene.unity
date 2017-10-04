@@ -313,7 +313,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2055741954}
-          m_MethodName: addDrag
+          m_MethodName: AddDrag
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -359,6 +359,23 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+  - Keyword: Rotate
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2055741954}
+          m_MethodName: AddRotate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
   IsGlobalListener: 1
 --- !u!114 &457
 MonoBehaviour:
@@ -383,6 +400,8 @@ MonoBehaviour:
     KeyCode: 115
   - Keyword: Load
     KeyCode: 108
+  - Keyword: Rotate
+    KeyCode: 116
 --- !u!1 &484
 GameObject:
   m_ObjectHideFlags: 0
