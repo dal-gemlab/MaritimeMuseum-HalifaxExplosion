@@ -63,6 +63,7 @@ public static class PositionFileHelper
         
     }
 
+#if WINDOWS_UWP
     public static async Task<List<storeObject>> loadFileHolo(string filename)
     {
         Stream stream = null;
@@ -85,6 +86,7 @@ public static class PositionFileHelper
         stream.Dispose();
         return objs;
     }
+#endif
 
     public static bool SaveRelativePositions(List<Transform> transforms, string filename)
     {
