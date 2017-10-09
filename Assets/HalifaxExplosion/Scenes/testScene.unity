@@ -395,9 +395,9 @@ MonoBehaviour:
   - Keyword: Print
     KeyCode: 112
   - Keyword: Drag
-    KeyCode: 100
+    KeyCode: 102
   - Keyword: Save
-    KeyCode: 115
+    KeyCode: 111
   - Keyword: Load
     KeyCode: 108
   - Keyword: Rotate
@@ -2092,7 +2092,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!108 &6364
 Light:
   m_ObjectHideFlags: 0

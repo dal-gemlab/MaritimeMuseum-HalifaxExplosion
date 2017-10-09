@@ -244,8 +244,8 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         for(int i = 0; i<positions.Count; i++)
         {
             Debug.Log("Current: " + holograms[i].name + "From file: " + positions[i].name );
-            holograms[i].transform.position = positions[i].position;
-            holograms[i].transform.rotation = positions[i].rotation;
+            holograms[i].transform.localPosition = positions[i].localPosition;
+            holograms[i].transform.localRotation = positions[i].localRotation;
 
         }
 

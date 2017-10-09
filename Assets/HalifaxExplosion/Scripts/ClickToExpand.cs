@@ -58,6 +58,10 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     {
         if(!isEnlarged)
         {
+            //Save current position and rotation (from secondary load)
+            modelPosition = transform.position;
+            modelRotation = transform.rotation;
+
             StartCoroutine(ScaleUp(5, animationTime, 0.2f,expansionTarget));
             isEnlarged = !isEnlarged;
 

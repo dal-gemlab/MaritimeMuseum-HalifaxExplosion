@@ -24,7 +24,10 @@ public static class PositionFileHelper
         UnityEditor.AssetDatabase.Refresh();
 
         TextAsset posFile = (TextAsset)Resources.Load(filename, typeof(TextAsset));
-
+        if(posFile == null)
+        {
+            return null;
+        }
         string json = posFile.text;
         List<storeObject> objs = new List<storeObject>();
         foreach(var line in json.Split('\n'))
@@ -39,8 +42,8 @@ public static class PositionFileHelper
         foreach (storeObject obj in objs)
         {
             GameObject g = new GameObject();
-            g.transform.position = new Vector3(obj.position[0], obj.position[1], obj.position[2]);
-            g.transform.rotation = new Quaternion(obj.rotation[0], obj.rotation[1], obj.rotation[2], obj.rotation[3]);
+            g.transform.localPosition = new Vector3(obj.position[0], obj.position[1], obj.position[2]);
+            g.transform.localRotation = new Quaternion(obj.rotation[0], obj.rotation[1], obj.rotation[2], obj.rotation[3]);
             storedTransforms.Add(g.transform);
             UnityEngine.MonoBehaviour.Destroy(g);
 
@@ -48,11 +51,15 @@ public static class PositionFileHelper
 #else
 
         var objs = loadFileHolo(filename).Result;
+        if(objs == null)
+        {
+            return null;
+        }
         foreach (storeObject obj in objs)
         {
             GameObject g = new GameObject();
-            g.transform.position = new Vector3(obj.position[0], obj.position[1], obj.position[2]);
-            g.transform.rotation = new Quaternion(obj.rotation[0], obj.rotation[1], obj.rotation[2], obj.rotation[3]);
+            g.transform.localPosition = new Vector3(obj.position[0], obj.position[1], obj.position[2]);
+            g.transform.localRotation = new Quaternion(obj.rotation[0], obj.rotation[1], obj.rotation[2], obj.rotation[3]);
             storedTransforms.Add(g.transform);
             UnityEngine.MonoBehaviour.Destroy(g);
 
@@ -72,6 +79,8 @@ public static class PositionFileHelper
         StorageFile posFile = await sF.GetFileAsync(filename);
         Debug.Log(sF.Path + "  " + sF.Name);
         stream = await posFile.OpenStreamForWriteAsync();
+        if (stream == null)
+            return null;
         StreamReader s = new StreamReader(stream);
         string json = await s.ReadToEndAsync();
 
@@ -94,8 +103,8 @@ public static class PositionFileHelper
         List<storeObject> serList = new List<storeObject>();
         foreach (Transform t in transforms)
         {
-            float[] p = new float[3] { t.position.x, t.position.y, t.position.z };
-            float[] r = new float[4] { t.rotation.x, t.rotation.y, t.rotation.z, t.rotation.w };
+            float[] p = new float[3] { t.localPosition.x, t.localPosition.y, t.localPosition.z };
+            float[] r = new float[4] { t.localRotation.x, t.localRotation.y, t.localRotation.z, t.localRotation.w };
 
             storeObject obj = new storeObject()
             {
