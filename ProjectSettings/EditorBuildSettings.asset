@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Test/vuforaSingleTargetTest.unity
     guid: a9828506cea8d1349aca9cdaaa43e52e
+  - enabled: 0
+    path: 
+    guid: d3dc8646ea6660040a44202a5fefa777

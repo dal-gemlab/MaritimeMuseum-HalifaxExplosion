@@ -7,9 +7,23 @@ using UnityEngine.SceneManagement;
 
 public class SpeechManager : MonoBehaviour {
 
+    public Material buildingMat;
+    public Material defaultBuildingColor;
+
+    private bool isAdmin = false;
+    private Color adminColor;
+
+    public void Start()
+    {
+        buildingMat.color = defaultBuildingColor.color;
+        adminColor = new Color(232f/255f, 88f/255f, 1);
+
+    }
 
     public void ResetScene()
     {
+        if (!isAdmin)
+            return;
         if(WorldAnchorManager.Instance.AnchorStore != null)
             WorldAnchorManager.Instance.AnchorStore.Clear();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -37,14 +51,29 @@ public class SpeechManager : MonoBehaviour {
 
     public void AddDrag()
     {
+        if (!isAdmin)
+            return;
         StateManager.Instance.AddManipulationCapability();
         StateManager.Instance.manipulationMethod = StateManager.ManipulationMethod.Translate;
     }
 
     public void AddRotate()
     {
+        if (!isAdmin)
+            return;
         StateManager.Instance.AddManipulationCapability();
         StateManager.Instance.manipulationMethod = StateManager.ManipulationMethod.Rotate;
+    }
+
+    public void SwitchAdmin()
+    {
+        isAdmin = !isAdmin;
+        if (isAdmin)
+            buildingMat.color = adminColor;
+        else
+            buildingMat.color = defaultBuildingColor.color;
+
+        
     }
 
 }

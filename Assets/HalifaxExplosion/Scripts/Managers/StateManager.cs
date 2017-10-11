@@ -118,6 +118,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 RemoveManipulationCapability();
                 AddEnlargeCapability();
                 AlignHorizon();
+                MatchPositionsFromFile();
                 break;
         }
     }

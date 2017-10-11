@@ -76,7 +76,16 @@ public static class PositionFileHelper
         Stream stream = null;
         List<storeObject> objs = new List<storeObject>();
         StorageFolder sF = ApplicationData.Current.LocalFolder;
-        StorageFile posFile = await sF.GetFileAsync(filename);
+        StorageFile posFile;
+        try
+        {
+            posFile = await sF.GetFileAsync(filename);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e.ToString());
+            return null;
+        }
         Debug.Log(sF.Path + "  " + sF.Name);
         stream = await posFile.OpenStreamForWriteAsync();
         if (stream == null)
