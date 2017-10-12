@@ -42,6 +42,7 @@ public static class PositionFileHelper
         foreach (storeObject obj in objs)
         {
             GameObject g = new GameObject();
+            g.transform.name = obj.name;
             g.transform.localPosition = new Vector3(obj.position[0], obj.position[1], obj.position[2]);
             g.transform.localRotation = new Quaternion(obj.rotation[0], obj.rotation[1], obj.rotation[2], obj.rotation[3]);
             storedTransforms.Add(g.transform);
@@ -58,6 +59,7 @@ public static class PositionFileHelper
         foreach (storeObject obj in objs)
         {
             GameObject g = new GameObject();
+            g.transform.name = obj.name;
             g.transform.localPosition = new Vector3(obj.position[0], obj.position[1], obj.position[2]);
             g.transform.localRotation = new Quaternion(obj.rotation[0], obj.rotation[1], obj.rotation[2], obj.rotation[3]);
             storedTransforms.Add(g.transform);

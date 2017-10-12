@@ -241,14 +241,22 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
             return;
         }
 
-
+        int loadedCount = 0;
         for(int i = 0; i<positions.Count; i++)
         {
-            Debug.Log("Current: " + holograms[i].name + "From file: " + positions[i].name );
-            holograms[i].transform.localPosition = positions[i].localPosition;
-            holograms[i].transform.localRotation = positions[i].localRotation;
-
+            for (int j = 0; j < positions.Count; j++)
+            {
+                //This ensures that files with different order can be loaded
+                if (holograms[i].name == positions[j].name)
+                {
+                    Debug.Log("Current: " + holograms[i].name + "From file: " + positions[j].name);
+                    holograms[i].transform.localPosition = positions[j].localPosition;
+                    holograms[i].transform.localRotation = positions[j].localRotation;
+                    loadedCount++;
+                }
+            }
         }
+        Debug.LogFormat("Loaded {0} positions from file", loadedCount);
 
     }
 
