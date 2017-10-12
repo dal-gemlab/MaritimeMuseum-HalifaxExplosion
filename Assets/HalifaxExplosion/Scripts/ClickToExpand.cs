@@ -58,6 +58,15 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     {
         if(!isEnlarged)
         {
+            //Ensure that there is no other expanded building
+            GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
+            foreach(var hologram in holograms)
+            {
+                var expandScript = hologram.GetComponent<ClickToExpand>();
+                if (expandScript.isEnlarged)
+                    expandScript.OnInputClicked(null);
+            }
+
             //Save current position and rotation (from secondary load)
             modelPosition = transform.position;
             modelRotation = transform.rotation;
