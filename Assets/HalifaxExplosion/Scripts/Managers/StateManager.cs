@@ -119,6 +119,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 AddEnlargeCapability();
                 AlignHorizon();
                 MatchPositionsFromFile();
+                StreamCameraWS.Instance.shouldSend = true;
                 break;
         }
     }

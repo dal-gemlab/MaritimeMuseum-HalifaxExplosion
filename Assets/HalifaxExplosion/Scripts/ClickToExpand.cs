@@ -34,6 +34,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
 
     private void Start()
     {
+        var gc = GameObject.Find("CameraStreamer");
         isEnlarged = false;
         //Get the default orientation/scale
         modelScale = transform.localScale;
