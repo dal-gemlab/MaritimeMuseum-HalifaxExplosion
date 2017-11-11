@@ -120,6 +120,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 AlignHorizon();
                 MatchPositionsFromFile();
                 StreamCameraWS.Instance.shouldSend = true;
+                StreamCameraWS.Instance.SignForExpansion();
                 break;
         }
     }

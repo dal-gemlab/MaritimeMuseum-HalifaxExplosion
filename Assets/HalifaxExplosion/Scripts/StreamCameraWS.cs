@@ -52,7 +52,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
             sendJS(notABuilding);
     }
 
-    private void SignForExpansion()
+    public void SignForExpansion()
     {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         foreach (GameObject b in holograms)
