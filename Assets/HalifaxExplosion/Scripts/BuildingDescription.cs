@@ -18,12 +18,14 @@ public class BuildingJS
     public string buildingName;
     public string description;
     public bool isTracking;
+    public bool isExpansion;
     public float[] pos;
     public float[] quat;
 
     public BuildingJS()
     {
         isTracking = false;
+        isExpansion = false;
     }
 
     public BuildingJS(string modelName, string buildingName, string description) : this()
@@ -31,6 +33,15 @@ public class BuildingJS
         modelJSName = modelName;
         this.buildingName = buildingName;
         this.description = description;
+    }
+
+    /// <summary>
+    /// Use this constructor for expansion messages
+    /// </summary>
+    /// <param name="gameObjectName">The building root game object name</param>
+    public BuildingJS(string gameObjectName) : this()
+    {
+        buildingName = gameObjectName;
     }
 
     public void SetPosRot(float[] pos, float[] quat)

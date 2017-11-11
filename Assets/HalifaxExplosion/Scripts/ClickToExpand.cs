@@ -32,6 +32,9 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     private Vector3 initialScale;
     public Vector3 finalScale;
 
+    public delegate void buildingClicked(string gameObjectName);
+    public event buildingClicked OnBuildingClicked;
+
     private void Start()
     {
         var gc = GameObject.Find("CameraStreamer");
@@ -57,6 +60,9 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     }
     public void OnInputClicked(InputClickedEventData eventData)
     {
+        if (OnBuildingClicked != null)
+            OnBuildingClicked.Invoke(this.gameObject.name);
+
         if(!isEnlarged)
         {
             //Ensure that there is no other expanded building
