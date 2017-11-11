@@ -42,6 +42,7 @@ public class BuildingJS
     public BuildingJS(string gameObjectName) : this()
     {
         buildingName = gameObjectName;
+        isExpansion = true;
     }
 
     public void SetPosRot(float[] pos, float[] quat)
