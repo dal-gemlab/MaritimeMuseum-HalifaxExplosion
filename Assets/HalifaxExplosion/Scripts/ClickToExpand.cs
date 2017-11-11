@@ -94,9 +94,13 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     //Scale up co-routine: scales without freezing application
     IEnumerator ScaleUp(float scaleFactor, float animationTime, float upTranslation, Vector3 endPosition)
     {
+
+        var bounds = this.gameObject.GetComponent<MeshCollider>().bounds;
+        var volume = bounds.size.magnitude;  //Vector3.Distance(bounds.max, bounds.min);
+
         float elapsedTime = 0.0f;
         Vector3 startScale = initialScale;
-        Vector3 endScale = initialScale * scaleFactor;
+        Vector3 endScale = initialScale * 1/volume;
         Vector3 startPosition = transform.position;
         startPos = startPosition;
 
@@ -116,6 +120,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     //Scale down co-routine: scales without freezing application
     IEnumerator ScaleDown(float animationTime, float downTranslation)
     {
+
         float elapsedTime = 0.0f;
         Vector3 startScale = transform.localScale;
         Vector3 endScale = initialScale;
