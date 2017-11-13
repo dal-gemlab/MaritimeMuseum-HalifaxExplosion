@@ -25,9 +25,11 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
     public bool shouldSend;
     public string addr;
     private bool isAsyncBusy;
+    public bool isConnected;
 
     private void Start()
     {
+        isConnected = false;
         connectToWS();
         notABuilding = new BuildingJS();
         shouldSend = false;
@@ -65,7 +67,8 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
     private void BuildingClicked(string gameObjectName)
     {
         var clickedBuilding = new BuildingJS(gameObjectName);
-        sendJS(clickedBuilding);
+        if (shouldSend)
+            sendJS(clickedBuilding);
     }
 
     IEnumerator updateRemoteAnchor()
@@ -96,7 +99,13 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
     private void connectToWS()
     {
         ws = new WebSocket("ws://localhost:8888/ws");
+        ws.OnOpen += ConnectedEvent;
         ws.Connect();
+    }
+
+    private void ConnectedEvent(object sender, EventArgs e)
+    {
+        isConnected = true;
     }
 #else
     private async void connectToWS()
@@ -114,6 +123,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         {
             Debug.LogErrorFormat("Booo.... something went wrong with the websocket\n{0}", ex.ToString());
         }
+        isConnected = true;
         messageWrite = new DataWriter(ws.OutputStream);
     }
 

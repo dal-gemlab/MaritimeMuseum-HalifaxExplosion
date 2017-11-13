@@ -60,7 +60,8 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     }
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        if (OnBuildingClicked != null)
+        //If event data is null it means that it is an internal change
+        if (OnBuildingClicked != null && eventData != null)
             OnBuildingClicked.Invoke(this.gameObject.name);
 
         if(!isEnlarged)
