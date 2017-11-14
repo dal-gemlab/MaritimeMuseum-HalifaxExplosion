@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
+using System.IO;
+using Windows.Storage;
 #if UNITY_EDITOR
 using WebSocketSharp;
 #else
@@ -23,13 +26,14 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
     //Reusing the same data structure...
     BuildingJS notABuilding;
     public bool shouldSend;
-    public string addr;
+    private string addr;
     private bool isAsyncBusy;
     public bool isConnected;
 
     private void Start()
     {
         isConnected = false;
+        addr = null;
         connectToWS();
         notABuilding = new BuildingJS();
         shouldSend = false;
@@ -110,21 +114,21 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
 #else
     private async void connectToWS()
     {
-        string serverAddr = addr;
-        serverAddr = serverAddr.Trim();
-        serverAddr = serverAddr.Substring(serverAddr.LastIndexOf(':') + 1);
         ws = new StreamWebSocket();
-        Uri serverUri = new Uri("ws://"+serverAddr+":8888/ws");
         try
         {
             await ws.ConnectAsync(serverUri);
+            isConnected = true;
+            messageWrite = new DataWriter(ws.OutputStream);
         }
         catch (Exception ex)
         {
             Debug.LogErrorFormat("Booo.... something went wrong with the websocket\n{0}", ex.ToString());
+            isConnected = false;
+            messageWrite = null;
         }
-        isConnected = true;
-        messageWrite = new DataWriter(ws.OutputStream);
+        
+        
     }
 
     private async void sendJS(BuildingJS data)
@@ -144,6 +148,29 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         {
             Debug.Log($"Sending problem: {ex.ToString()}");
         }
+    }
+
+    private async Task<string> loadWSHostAddr()
+    {
+        Stream stream = null;
+        StorageFolder sF = ApplicationData.Current.LocalFolder;
+        StorageFile hostFile;
+
+        try
+        {
+            hostFile = await sF.GetFileAsync("host");
+        }
+        catch(Exception e)
+        {
+            //File does not exist, we should not stream
+            Debug.LogError(e.ToString());
+            return null;
+        }
+        stream = await hostFile.OpenStreamForReadAsync();
+        StreamReader sR = new StreamReader(stream);
+        string addr = await sR.ReadLineAsync();
+        stream.Dispose();
+        return addr;
     }
 
 #endif
