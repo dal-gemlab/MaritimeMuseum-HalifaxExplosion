@@ -114,7 +114,15 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
 #else
     private async void connectToWS()
     {
+        string serverAddr = await loadWSHostAddr();
+        if (serverAddr == null)
+        {
+            Debug.LogError("No file containing host addr");
+            isConnected = false;
+            return;
+        }
         ws = new StreamWebSocket();
+        Uri serverUri = new Uri(serverAddr);
         try
         {
             await ws.ConnectAsync(serverUri);
