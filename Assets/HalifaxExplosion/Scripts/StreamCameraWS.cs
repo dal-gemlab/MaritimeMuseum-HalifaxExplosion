@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.Threading.Tasks;
-using System.IO;
-using Windows.Storage;
 #if UNITY_EDITOR
 using WebSocketSharp;
 #else
+using System.Threading.Tasks;
+using System.IO;
+using Windows.Storage;
 using System.Runtime.Serialization.Json;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
