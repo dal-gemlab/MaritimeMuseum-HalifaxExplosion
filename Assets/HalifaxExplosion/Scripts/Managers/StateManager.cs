@@ -123,6 +123,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 {
                     StreamCameraWS.Instance.shouldSend = true;
                     StreamCameraWS.Instance.SignForExpansion();
+                    StreamCameraWS.Instance.updateRemoteAnchor();
                 }
                 break;
         }

@@ -37,7 +37,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         connectToWS();
         notABuilding = new BuildingJS();
         shouldSend = false;
-        StartCoroutine(updateRemoteAnchor());
+        StartCoroutine(remoteAnchorCoroutine());
         isAsyncBusy = false;
         
     }
@@ -75,22 +75,27 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
             sendJS(clickedBuilding);
     }
 
-    IEnumerator updateRemoteAnchor()
+    IEnumerator remoteAnchorCoroutine()
     {
         while (true)
         {
-            var p = anchor.transform.position;
-            var q = anchor.transform.rotation;
-            float[] arrayP = new float[3] { p.x, p.y, p.z };
-            float[] arrayQ = new float[4] { q.x, q.y, q.z, q.w };
-
-            var notABuildingButAnAnchor = new BuildingJS("anchor", "", "");
-            notABuildingButAnAnchor.SetPosRot(arrayP, arrayQ);
-            
-            if (shouldSend)
-                sendJS(notABuildingButAnAnchor);
+            updateRemoteAnchor();
             yield return new WaitForSeconds(20);
         }
+    }
+
+    public void updateRemoteAnchor()
+    {
+        var p = anchor.transform.position;
+        var q = anchor.transform.rotation;
+        float[] arrayP = new float[3] { p.x, p.y, p.z };
+        float[] arrayQ = new float[4] { q.x, q.y, q.z, q.w };
+
+        var notABuildingButAnAnchor = new BuildingJS("anchor", "", "");
+        notABuildingButAnAnchor.SetPosRot(arrayP, arrayQ);
+
+        if (shouldSend)
+            sendJS(notABuildingButAnAnchor);
     }
 
 #if UNITY_EDITOR
