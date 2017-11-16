@@ -111,9 +111,14 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
         Vector3 startPosition = transform.position;
         startPos = startPosition;
 
-        Debug.LogFormat("Name: {3} x: {0} y: {1} z: {2}", transform.localPosition.x, transform.localPosition.y, transform.localPosition.z, transform.gameObject.name);
+        if(transform.gameObject.name == "mulgrave park")
+        {
+            endScale = initialScale * 1.5f / volume;
+        }
 
-        while (elapsedTime < animationTime)
+        //Debug.LogFormat("Name: {3} x: {0} y: {1} z: {2}", transform.localPosition.x, transform.localPosition.y, transform.localPosition.z, transform.gameObject.name);
+
+            while (elapsedTime < animationTime)
         {
             transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / animationTime);
             transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / animationTime);
