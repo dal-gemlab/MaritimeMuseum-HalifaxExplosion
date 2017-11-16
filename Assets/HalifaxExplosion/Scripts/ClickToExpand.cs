@@ -113,7 +113,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
 
         if(transform.gameObject.name == "mulgrave park")
         {
-            endScale = initialScale * 1.5f / volume;
+            endScale = initialScale * 2 / volume;
         }
 
         //Debug.LogFormat("Name: {3} x: {0} y: {1} z: {2}", transform.localPosition.x, transform.localPosition.y, transform.localPosition.z, transform.gameObject.name);
