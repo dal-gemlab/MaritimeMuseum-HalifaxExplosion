@@ -29,6 +29,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
     private string addr;
     private bool isAsyncBusy;
     public bool isConnected;
+    bool divider = true;
 
     private void Start()
     {
@@ -40,10 +41,18 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         StartCoroutine(remoteAnchorCoroutine());
         isAsyncBusy = false;
         
+        
     }
 
     private void FixedUpdate()
     {
+        //Clock divider to safe wifi badwith
+        if(divider)
+        {
+            divider = !divider;
+            return;
+        }
+
         if (isAsyncBusy)
             return;
         var p = hololensCamera.transform.position;
@@ -56,6 +65,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         
         if (shouldSend)
             sendJS(notABuilding);
+        divider = !divider;
     }
 
     public void SignForExpansion()
@@ -80,7 +90,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         while (true)
         {
             updateRemoteAnchor();
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(5);
         }
     }
 

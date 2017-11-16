@@ -24,7 +24,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     private Vector3 modelScale;
     private Vector3 modelPosition;
     private Quaternion modelRotation;
-    private Vector3 expansionTarget;
+    private GameObject expansionTarget;
     private Vector3 startPos;
     private BuildingDescription buildingDescription;
 
@@ -46,7 +46,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
 
         initialScale = transform.localScale;
 
-        expansionTarget = GameObject.Find("ExpansionPoint").transform.position;
+        expansionTarget = GameObject.Find("ExpansionPoint");
         buildingDescription = this.GetComponent<BuildingDescription>();
     }
 
@@ -79,7 +79,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
             modelPosition = transform.position;
             modelRotation = transform.rotation;
 
-            StartCoroutine(ScaleUp(5, animationTime, 0.2f,expansionTarget));
+            StartCoroutine(ScaleUp(5, animationTime, 0.2f,expansionTarget.transform.position));
             isEnlarged = !isEnlarged;
 
 
@@ -164,28 +164,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
         }
     }
 
-    private void OnGUI()
-    {
-        if (GUILayout.Button("Expand"))
-        {
-            if (!isEnlarged)
-            {
-                StartCoroutine(ScaleUp(5, animationTime, 0.2f, expansionTarget));
-                isEnlarged = !isEnlarged;
-                var b = new BuildingJS(buildingDescription.modelJSName,
-                    buildingDescription.buildingName,
-                    buildingDescription.buildingDescription);
-                //sendBuldingInfo(b);
-            }
-            else
-            {
-                StartCoroutine(ScaleDown(animationTime, 0.2f));
-                this.transform.rotation = modelRotation;
-                isEnlarged = !isEnlarged;
-                //holoCap = null;
-            };
-        }
-    }
+
 #else
     private async void sendBuldingInfo(BuildingJS b)
     {
