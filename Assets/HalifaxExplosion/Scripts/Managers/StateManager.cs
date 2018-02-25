@@ -4,14 +4,15 @@ using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 using HoloToolkit.Unity.SpatialMapping;
 using HoloToolkit.Unity;
-
+using System;
+using UnityEngine.VR.WSA;
 
 /// <summary>
 /// Halifax Explosion State Manager
 /// Class that control the flow from Spatial Mapping
 ///   to showing the buldings to public
 /// </summary>
-public class StateManager : MonoBehaviour {
+public class StateManager : MonoBehaviour, IInputClickHandler {
 
     //Prefab containing all the buldings
     public  GameObject anchorPrefab;
@@ -19,6 +20,12 @@ public class StateManager : MonoBehaviour {
     public GameObject placementArrow;
     //Name of the file used for saving relative positions of the models
     public string positionsFile;
+    //ARCamera from Vuforia
+    public GameObject arCam;
+    //Image target for vuforia
+    public GameObject imgTarget;
+    //The instructional text
+    public TextMesh instructionalText;
 
     
 
@@ -26,6 +33,9 @@ public class StateManager : MonoBehaviour {
     private WorldAnchorManager anchorManager;
     private GameObject anchor;
     private GameObject arrow;
+
+    private const string findText = "Please find the QR tag in the wood model";
+    private const string foundText = "QR Found, use the clicker";
 
     //Singleton implementation
     private static StateManager instance;
@@ -61,12 +71,15 @@ public class StateManager : MonoBehaviour {
     {
         InitializeStates();
         //Register for the event that signals the end of the spatial mapping
-        SpatialMappingManager.Instance.gameObject
-            .GetComponent<SpatialMappingLimiter>().finishedMappingEvent += ScanningFinished;
+        //Not using spatial mapping anymore
+        //SpatialMappingManager.Instance.gameObject
+        //   .GetComponent<SpatialMappingLimiter>().finishedMappingEvent += ScanningFinished;
         //Default method in edit is translate
         manipulationMethod = ManipulationMethod.Translate;
         Debug.Log("State Manager Initialized");
-        anchorManager = WorldAnchorManager.Instance;
+
+        anchorManager =  WorldAnchorManager.Instance;
+        ChangeState(State.DefineOrigin);
     }
          
 
@@ -83,48 +96,45 @@ public class StateManager : MonoBehaviour {
             //Reason for -*right: origin is set at the top most right corner
             // of the model
             case State.DefineOrigin:
-                arrow = Instantiate(placementArrow);
-                //Register for the event raised once the user sets the points
-                arrow.GetComponent<TapToSetOrigin>().pointsSetEvent += PointsSet;
+                //Start the vuforiaCam
+                arCam.SetActive(true);
+                //Enable the target
+                imgTarget.SetActive(true);
+                //Let the user click once the tag is in view
+                InputManager.Instance.AddGlobalListener(this.gameObject);
+                //Sign up for Vuforia tracking state changes
+                var qrTag = GameObject.Find("ImageTarget");
+                qrTag.GetComponent<AnchorTrackableEventHandler>().OnAnchorTrackingChanged += QRTagTrackingChanged;
+                //Set-up the inst text
+                instructionalText.text = findText;
+
                 break;
 
-            //TODO: Remove this state. The anchor is placed when the origin is defined :)
-            case State.PlacingAnchor:
-                currentState = nextState;
-                anchor = Instantiate(anchorPrefab);
-                //Means we have a store and we are inside the hololens
-                if(anchorManager.AnchorStore != null)
-                    if (anchorManager.AnchorStore.Load("Reference", anchor) != null)
-                    {
-                        Debug.Log("Anchor exists!");
-                        anchor.GetComponent<TapToSetAnchor>().AnchorExistsSkipStep();
-                        //Load positions from file (relative from the ancho origin)
-                        //MatchPositionsFromFile(positionsFile);
-                        this.ChangeState(State.Show);
-                    }
-                break;
-
-            //Stage that allows the user to adjust all the buldings
-            case State.AdjustingBuldings:
-                currentState = nextState;
-                HoloToolkit.Unity.SpatialMapping.SpatialMappingManager.Instance.DrawVisualMeshes = false;
-                AddDragableCapability();
-                break;
             
-            //Once the adjustment is complete this stage should save the transforms
-            case State.SaveBuildings:
-                //SaveBuldingsTransformToFile(positionsFile);
-                ChangeState(State.Show);
-                break;
-
+    
             //Final stage where people can interact with the exhibit
             case State.Show:
                 currentState = nextState;
-                Destroy(SpatialMappingManager.Instance.gameObject);
-                RemoveDragableCapability();
+                RemoveManipulationCapability();
                 AddEnlargeCapability();
+                AlignHorizon();
+                MatchPositionsFromFile();
+                if (StreamCameraWS.Instance.isConnected)
+                {
+                    StreamCameraWS.Instance.shouldSend = true;
+                    StreamCameraWS.Instance.SignForExpansion();
+                    StreamCameraWS.Instance.updateRemoteAnchor();
+                }
                 break;
         }
+    }
+
+    private void QRTagTrackingChanged(bool isTracked)
+    {
+        if (isTracked)
+            instructionalText.text = foundText;
+        else
+            instructionalText.text = findText;
     }
 
     private void InitializeStates()
@@ -132,50 +142,50 @@ public class StateManager : MonoBehaviour {
         currentState = State.SpatialMaping;
     }
 
+    public void OnInputClicked(InputClickedEventData eventData)
+    {
+        var anchor = imgTarget.transform.GetChild(0);
+        anchor.transform.parent = null;
+        //imgTarget.SetActive(false);
+        //arCam.SetActive(false);
+        Destroy(imgTarget);
+        Destroy(arCam);
+        Vuforia.VuforiaManager.Instance.Deinit();
+        InputManager.Instance.RemoveGlobalListener(this.gameObject);
+        //Move the buldings slighty up
+        anchor.Translate(new Vector3(0, 0.2f, 0));
+
+        var worldAnchor = anchor.gameObject.AddComponent<WorldAnchor>();
+        if (anchorManager.AnchorStore != null)
+        {
+            anchorManager.AnchorStore.Clear();
+            anchorManager.AnchorStore.Save(anchor.name.ToString(), worldAnchor);
+        }
+        //Destroy the text
+        Destroy(instructionalText.gameObject);
+        ChangeState(State.Show);
+    }
+
     private void ScanningFinished()
     {
         ChangeState(State.DefineOrigin);
+    
     }
+    
 
-    /// <summary>
-    /// Event handler function that is called once the
-    /// reference points (origin and right) are set.
-    /// </summary>
-    /// <param name="points"></param>
-    private void PointsSet(List<Vector3> points)
-    {
-        Destroy(arrow);
-        var origin = points[0];
-        var xDirection = points[0];
-        anchor = Instantiate(anchorPrefab);
-        anchor.transform.position = origin;
-        //For now, but we need to define how we are adjusting/saving
-        //Look how it was done through the anchor store in the placing anchor state
-        //We can maybe set them in the editor using the spatial mapped data.
-        anchor.GetComponent<TapToSetAnchor>().AnchorExistsSkipStep();
-        ChangeState(State.Show);
-
-        //We cant simply use the two points because they are not parallel to the ground
-        //First, we need to project the direction onto the Y plane
-        Vector3 lookDirection = Vector3.ProjectOnPlane(xDirection, transform.up).normalized;
-        anchor.transform.rotation = Quaternion.LookRotation(lookDirection, transform.up);
-        //Look rotation expects the forward vector (look) so we compensate by rotating
-        //90 after we set the first rotation
-        anchor.transform.rotation *= Quaternion.Euler(0, -90, 0);
-
-    }
-
-    private void AddDragableCapability()
+    public void AddManipulationCapability()
     {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         foreach(GameObject hologram in holograms)
         {
-            hologram.AddComponent<ManipulateToMove>();
+            ManipulateToMove cap = hologram.GetComponent<ManipulateToMove>();
+            if(cap == null)
+                hologram.AddComponent<ManipulateToMove>();
         }
     }
 
     
-    private void RemoveDragableCapability()
+    private void RemoveManipulationCapability()
     {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         foreach (GameObject hologram in holograms)
@@ -194,28 +204,38 @@ public class StateManager : MonoBehaviour {
             hologram.AddComponent<ClickToExpand>();
         }
     }
-#if UNITY_ENDITOR
+
+    
+#if UNITY_EDITOR
     private void OnGUI()
     {
         if (GUILayout.Button("Finish Placement"))
         {
             this.ChangeState(State.Show);
         }
-        if (GUILayout.Button("Clear Anchors"))
-        {
-            anchorManager.AnchorStore.Clear();
-        }
         if (GUILayout.Button("Change to Adjusting"))
         {
-            AddDragableCapability();
+            AddManipulationCapability();
             this.ChangeState(State.AdjustingBuldings);
         }
     }
 #endif
 
-    private void MatchPositionsFromFile(string filename)
+    private void AlignHorizon()
     {
-        List<Transform> positions = PositionFileHelper.GetRelativePositions(filename);
+        GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
+        foreach (GameObject hologram in holograms)
+        {
+            var rot = hologram.transform.rotation;
+            hologram.transform.rotation = Quaternion.Euler(0, rot.eulerAngles.y, 0);
+        }
+
+        return;
+    }
+
+    public void MatchPositionsFromFile()
+    {
+        List<Transform> positions = PositionFileHelper.GetRelativePositions(positionsFile);
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
 
         if (positions == null)
@@ -227,27 +247,36 @@ public class StateManager : MonoBehaviour {
             return;
         }
 
-
+        int loadedCount = 0;
         for(int i = 0; i<positions.Count; i++)
         {
-            Debug.Log("Current: " + holograms[i].name + "From file: " + positions[i].name );
-            holograms[i].transform.position = positions[i].position;
-            holograms[i].transform.rotation = positions[i].rotation;
-
+            for (int j = 0; j < positions.Count; j++)
+            {
+                //This ensures that files with different order can be loaded
+                if (holograms[i].name == positions[j].name)
+                {
+                    Debug.Log("Current: " + holograms[i].name + "From file: " + positions[j].name);
+                    holograms[i].transform.localPosition = positions[j].localPosition;
+                    holograms[i].transform.localRotation = positions[j].localRotation;
+                    loadedCount++;
+                }
+            }
         }
+        Debug.LogFormat("Loaded {0} positions from file", loadedCount);
 
     }
 
-    private void SaveBuldingsTransformToFile(string filename)
+    public void SaveBuldingsTransformToFile()
     {
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
         //OK THIS IS UGGLY, TODO: change the helper class
         List<Transform> transforms = new List<Transform>(holograms.Length);
-        foreach(GameObject go in holograms)
+        foreach (GameObject go in holograms)
         {
             transforms.Add(go.transform);
         }
-        PositionFileHelper.SaveRelativePositions(transforms , filename);
+        PositionFileHelper.SaveRelativePositions(transforms, positionsFile);
     }
+
 
 }
