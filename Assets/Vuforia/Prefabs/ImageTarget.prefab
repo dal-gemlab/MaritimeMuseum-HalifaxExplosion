@@ -538,6 +538,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4382166720604642}
   - component: {fileID: 64525532080650794}
+  - component: {fileID: 114412543091889228}
+  - component: {fileID: 114328069916210934}
   m_Layer: 0
   m_Name: G_01_Cotton_Mill1
   m_TagString: Hologram
@@ -1840,6 +1842,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdde1d0b715cb74facfdd587283199b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114328069916210934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682614584711578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuildingNameGO: {fileID: 0}
+--- !u!114 &114412543091889228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682614584711578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: Halifax Cotton Mill
+  buildingName: Halifax Cotton Mill
+  buildingDescription: Bla bla bla of course
 --- !u!114 &114767430433271766
 MonoBehaviour:
   m_ObjectHideFlags: 1
