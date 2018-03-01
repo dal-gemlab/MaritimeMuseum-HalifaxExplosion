@@ -215,6 +215,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4856938817907908}
   - component: {fileID: 64932998912744338}
+  - component: {fileID: 114549457846352760}
+  - component: {fileID: 114172195535136854}
   m_Layer: 0
   m_Name: G_03_Sugar_Refinery1
   m_TagString: Hologram
@@ -248,6 +250,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4062327381745328}
   - component: {fileID: 64482075711710136}
+  - component: {fileID: 114204795464329026}
+  - component: {fileID: 114830941748232914}
   m_Layer: 0
   m_Name: Group1
   m_TagString: Hologram
@@ -265,6 +269,8 @@ GameObject:
   - component: {fileID: 4463093650644104}
   - component: {fileID: 64455912368461730}
   - component: {fileID: 64698326482106276}
+  - component: {fileID: 114610354359906060}
+  - component: {fileID: 114482264679134560}
   m_Layer: 0
   m_Name: mulgrave park
   m_TagString: Hologram
@@ -313,6 +319,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4725145164843298}
   - component: {fileID: 64692530696035958}
+  - component: {fileID: 114737334129322480}
+  - component: {fileID: 114093266386314456}
   m_Layer: 0
   m_Name: veith house
   m_TagString: Hologram
@@ -346,6 +354,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4351713524192854}
   - component: {fileID: 64558442497225200}
+  - component: {fileID: 114808395361639056}
+  - component: {fileID: 114582658750273750}
   m_Layer: 0
   m_Name: 09 Halifax Graving Dock new maya
   m_TagString: Hologram
@@ -362,6 +372,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4160901905147908}
   - component: {fileID: 64896699467099762}
+  - component: {fileID: 114083976039869562}
+  - component: {fileID: 114437937218861844}
   m_Layer: 0
   m_Name: 06 Irving Shipyard and Assembly Hall with images
   m_TagString: Hologram
@@ -427,6 +439,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4181203254146816}
   - component: {fileID: 64687604032671376}
+  - component: {fileID: 114184768448873962}
+  - component: {fileID: 114992731252096106}
   m_Layer: 0
   m_Name: G_02_Richmond_School1
   m_TagString: Hologram
@@ -505,6 +519,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4094733519231106}
   - component: {fileID: 64203443442406534}
+  - component: {fileID: 114104081743501320}
+  - component: {fileID: 114717562716393892}
   m_Layer: 0
   m_Name: G_04_XYZ1
   m_TagString: Hologram
@@ -605,6 +621,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4426942760980404}
   - component: {fileID: 64172719056951668}
+  - component: {fileID: 114173629374507852}
+  - component: {fileID: 114380455656996896}
   m_Layer: 0
   m_Name: power plant
   m_TagString: Hologram
@@ -621,6 +639,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4264177424309000}
   - component: {fileID: 64497213187320600}
+  - component: {fileID: 114616059839528420}
+  - component: {fileID: 114172156297973248}
   m_Layer: 0
   m_Name: G_07_French_Cable_Wharf1
   m_TagString: Hologram
@@ -1152,11 +1172,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
-  - {fileID: 2100000, guid: 0aeaa72249db3c44cbb1af8b95106322, type: 2}
-  - {fileID: 2100000, guid: 162445448fed1014e9ac0120614b476f, type: 2}
-  - {fileID: 2100000, guid: 6a23d4849c1668e46a5537c971b12b58, type: 2}
-  - {fileID: 2100000, guid: da1cfb18d993ef84389901cfbd382136, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1188,7 +1208,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1220,10 +1240,10 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
-  - {fileID: 2100000, guid: eb0da470ec89d344abfe975bb3d970c1, type: 2}
-  - {fileID: 2100000, guid: 5bfc1da7b759e5e4daf3c18038b21136, type: 2}
-  - {fileID: 2100000, guid: e9db794f5037e7a4a910342229109086, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1255,7 +1275,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1287,7 +1307,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1319,11 +1339,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
-  - {fileID: 2100000, guid: 96aa491e0e6fc0c43b267d8c25bf34d7, type: 2}
-  - {fileID: 2100000, guid: 662c545245ac02148944b91918a5c57d, type: 2}
-  - {fileID: 2100000, guid: 70bf46bc8c71f2640b30a2cb9110d110, type: 2}
-  - {fileID: 2100000, guid: 8881cddc4d9fde24f8c0eb836a5471c7, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1355,7 +1375,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1387,7 +1407,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1419,7 +1439,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1451,11 +1471,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 19ac71ddbafbe8449b8dafbb2bd283e5, type: 2}
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
-  - {fileID: 2100000, guid: 849599c2adb92784c9c4ef73ba28142b, type: 2}
-  - {fileID: 2100000, guid: c7e12471928954d48b0123a8bffcdce4, type: 2}
-  - {fileID: 2100000, guid: 60b17813b3b98a94da7a56bf8ad8acc9, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1487,7 +1507,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1519,7 +1539,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1551,9 +1571,9 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ae3bc6c7e6e2e3445b53864337065e4b, type: 2}
-  - {fileID: 2100000, guid: bd6383cdca4eebd45acfee07ddc8c7be, type: 2}
-  - {fileID: 2100000, guid: a7dde7b8a6ce8064fb3cef3d6211ac65, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
+  - {fileID: 2100000, guid: f5995c2d6e301124db560c3be18f675a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1842,6 +1862,118 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdde1d0b715cb74facfdd587283199b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114083976039869562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360929905848558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
+--- !u!114 &114093266386314456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170007143310754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
+--- !u!114 &114104081743501320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1599815537152036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
+--- !u!114 &114172156297973248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822519229330686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
+--- !u!114 &114172195535136854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1047874959866746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
+--- !u!114 &114173629374507852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817478424937248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
+--- !u!114 &114184768448873962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419539087163874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
+--- !u!114 &114204795464329026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085554428193244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
 --- !u!114 &114328069916210934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1853,7 +1985,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingNameGO: {fileID: 0}
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
+--- !u!114 &114380455656996896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817478424937248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
 --- !u!114 &114412543091889228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1868,6 +2016,118 @@ MonoBehaviour:
   modelJSName: Halifax Cotton Mill
   buildingName: Halifax Cotton Mill
   buildingDescription: Bla bla bla of course
+--- !u!114 &114437937218861844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360929905848558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
+--- !u!114 &114482264679134560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1104045900628202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
+--- !u!114 &114549457846352760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1047874959866746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
+--- !u!114 &114582658750273750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333357642961216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
+--- !u!114 &114610354359906060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1104045900628202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
+--- !u!114 &114616059839528420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822519229330686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
+--- !u!114 &114717562716393892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1599815537152036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
+--- !u!114 &114737334129322480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1170007143310754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
 --- !u!114 &114767430433271766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1879,3 +2139,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfdde1d0b715cb74facfdd587283199b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114808395361639056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333357642961216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69af7e9670e53742a89d38e06399dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
+    type: 2}
+  textHeightInMeters: 0.15
+--- !u!114 &114830941748232914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085554428193244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
+--- !u!114 &114992731252096106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419539087163874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85db078457436479c7bef57fe14dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Name me
+  buildingDescription: 
