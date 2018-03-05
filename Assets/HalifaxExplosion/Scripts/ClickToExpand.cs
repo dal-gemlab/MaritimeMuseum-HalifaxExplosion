@@ -20,7 +20,7 @@ using Windows.Storage.Streams;
 [RequireComponent(typeof(BuildingDescription))]
 public class ClickToExpand : MonoBehaviour, IInputClickHandler
 {
-    private bool isEnlarged;
+    public bool IsEnlarged { get; private set; }
     private Vector3 modelScale;
     private Vector3 modelPosition;
     private Quaternion modelRotation;
@@ -38,7 +38,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     private void Start()
     {
         var gc = GameObject.Find("CameraStreamer");
-        isEnlarged = false;
+        IsEnlarged = false;
         //Get the default orientation/scale
         modelScale = transform.localScale;
         modelPosition = transform.position;
@@ -64,14 +64,14 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
         if (OnBuildingClicked != null && eventData != null)
             OnBuildingClicked.Invoke(this.gameObject.name);
 
-        if(!isEnlarged)
+        if(!IsEnlarged)
         {
             //Ensure that there is no other expanded building
             GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
             foreach(var hologram in holograms)
             {
                 var expandScript = hologram.GetComponent<ClickToExpand>();
-                if (expandScript.isEnlarged)
+                if (expandScript.IsEnlarged)
                     expandScript.OnInputClicked(null);
             }
 
@@ -80,7 +80,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
             modelRotation = transform.rotation;
 
             StartCoroutine(ScaleUp(5, animationTime, 0.2f,expansionTarget.transform.position));
-            isEnlarged = !isEnlarged;
+            IsEnlarged = !IsEnlarged;
 
 
             //var b = new BuildingJS(buildingDescription.modelJSName,
@@ -92,7 +92,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
         {
             StartCoroutine(ScaleDown(animationTime, 0.2f));
             this.transform.rotation = modelRotation;
-            isEnlarged = !isEnlarged;
+            
             //holoCap = null;
         }
 
@@ -146,7 +146,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-
+        IsEnlarged = !IsEnlarged;
         yield return 0;
     }
 

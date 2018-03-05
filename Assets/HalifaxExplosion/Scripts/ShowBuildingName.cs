@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using System.Timers;
+#else
+//using System.Windows.Threading;
+using Windows.UI.Xaml;
+#endif
 
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
+
 
 [RequireComponent(typeof(BuildingDescription))]
 public class ShowBuildingName : MonoBehaviour, IFocusable {
@@ -22,10 +28,19 @@ public class ShowBuildingName : MonoBehaviour, IFocusable {
     private bool animationSingleQueue;
     private GameObject infoBar;
     private TextMesh clickMeText;
+
+#if UNITY_EDITOR
     private Timer clickMeTimer;
+#else
+    private DispatcherTimer clickMeTimer;
+#endif
+
 
     public void OnFocusEnter()
     {
+        if (GetComponent<ClickToExpand>().IsEnlarged)
+            return;
+
         clickMeTimer.Start();
         if (isAnimating)
         {
@@ -38,6 +53,8 @@ public class ShowBuildingName : MonoBehaviour, IFocusable {
     public void OnFocusExit()
     {
         clickMeTimer.Stop();
+        if (GetComponent<ClickToExpand>().IsEnlarged)
+            return;
         if (isAnimating)
         {
             isAnimationOnQueue = true;
@@ -59,15 +76,44 @@ public class ShowBuildingName : MonoBehaviour, IFocusable {
                                                      infoBar.transform.position.y - textHeightInMeters/2,
                                                      infoBar.transform.position.z);
 
+#if UNITY_EDITOR
         clickMeTimer = new Timer(clickMeTipTimer * 1000);
         clickMeTimer.AutoReset = false;
         clickMeTimer.Elapsed += (s, e) => UnityMainThreadDispatcher.Instance().Enqueue(() => clickMeText.text = " Click Me");
+#else
+
+        Window.Current.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+            () =>
+            {
+                clickMeTimer = new DispatcherTimer();
+                clickMeTimer.Interval = new System.TimeSpan(0, 0, clickMeTipTimer);
+                clickMeTimer.Tick += (s, e) => clickMeText.text = " Click Me";
+            });
+
+
+        
+#endif
 
 
         lR = infoBar.GetComponent<LineRenderer>();
         BuildingName = GetComponent<BuildingDescription>().buildingName;
+
+        StateManager.Instance.onStateChanged += StateMangerStateChanged;
 	}
 
+    private void StateMangerStateChanged(StateManager.State state)
+    {
+        if(state == StateManager.State.Show)
+        {
+            GetComponent<ClickToExpand>().OnBuildingClicked += (name) => 
+            {
+                isAnimationOnQueue = false;
+                lR.positionCount = 0;
+                infoBar.GetComponent<TextMesh>().text = "";
+                clickMeText.text = "";
+            };
+        }
+    }
 
     IEnumerator AnimateLine(bool shouldGoDown)
     {

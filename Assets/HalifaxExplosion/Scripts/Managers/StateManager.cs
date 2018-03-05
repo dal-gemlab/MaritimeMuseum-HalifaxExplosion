@@ -67,6 +67,9 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
     public enum ManipulationMethod {Rotate, Scale, Translate}
     public ManipulationMethod manipulationMethod { get; set; }
 
+    public delegate void stateChanged(State state);
+    public event stateChanged onStateChanged;
+
     private void Start()
     {
         InitializeStates();
@@ -127,6 +130,8 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 }
                 break;
         }
+        if(onStateChanged != null)
+            onStateChanged.Invoke(nextState);
     }
 
     private void QRTagTrackingChanged(bool isTracked)
