@@ -1,11 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-#if UNITY_EDITOR
-using System.Timers;
-#else
-//using System.Windows.Threading;
-using Windows.UI.Xaml;
-#endif
+
 
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
@@ -19,7 +14,8 @@ public class ShowBuildingName : MonoBehaviour, IFocusable {
     [Range(0, 2)]
     public float textHeightInMeters = 0.3f;
     [Range(1, 10)]
-    public int clickMeTipTimer;
+    public int hoverTipTimer;
+    public string hoverFocusTtext;
 
     private string BuildingName;
     private LineRenderer lR;
@@ -28,12 +24,8 @@ public class ShowBuildingName : MonoBehaviour, IFocusable {
     private bool animationSingleQueue;
     private GameObject infoBar;
     private TextMesh clickMeText;
+    private UnityTimer clickMeTimer;
 
-#if UNITY_EDITOR
-    private Timer clickMeTimer;
-#else
-    private DispatcherTimer clickMeTimer;
-#endif
 
 
     public void OnFocusEnter()
@@ -41,7 +33,7 @@ public class ShowBuildingName : MonoBehaviour, IFocusable {
         if (GetComponent<ClickToExpand>().IsEnlarged)
             return;
 
-        clickMeTimer.Start();
+        clickMeTimer.TimerStart();
         if (isAnimating)
         {
             isAnimationOnQueue = true;
@@ -52,7 +44,7 @@ public class ShowBuildingName : MonoBehaviour, IFocusable {
 
     public void OnFocusExit()
     {
-        clickMeTimer.Stop();
+        clickMeTimer.TimerStop();
         if (GetComponent<ClickToExpand>().IsEnlarged)
             return;
         if (isAnimating)
@@ -76,23 +68,10 @@ public class ShowBuildingName : MonoBehaviour, IFocusable {
                                                      infoBar.transform.position.y - textHeightInMeters/2,
                                                      infoBar.transform.position.z);
 
-#if UNITY_EDITOR
-        clickMeTimer = new Timer(clickMeTipTimer * 1000);
+        clickMeTimer = gameObject.AddComponent<UnityTimer>();
+        clickMeTimer.SetInterval(hoverTipTimer);
         clickMeTimer.AutoReset = false;
-        clickMeTimer.Elapsed += (s, e) => UnityMainThreadDispatcher.Instance().Enqueue(() => clickMeText.text = " Click Me");
-#else
-
-        Window.Current.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-            () =>
-            {
-                clickMeTimer = new DispatcherTimer();
-                clickMeTimer.Interval = new System.TimeSpan(0, 0, clickMeTipTimer);
-                clickMeTimer.Tick += (s, e) => clickMeText.text = " Click Me";
-            });
-
-
-        
-#endif
+        clickMeTimer.Elapsed += () => clickMeText.text = " "+ hoverFocusTtext;
 
 
         lR = infoBar.GetComponent<LineRenderer>();
