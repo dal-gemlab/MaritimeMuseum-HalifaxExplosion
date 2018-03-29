@@ -65,7 +65,7 @@ public class ShowBuildingName : MonoBehaviour, IFocusable {
                                                  transform.position.z);
         clickMeText = infoBar.transform.GetChild(0).GetComponent<TextMesh>();
         clickMeText.transform.position = new Vector3(infoBar.transform.position.x,
-                                                     infoBar.transform.position.y - textHeightInMeters/2,
+                                                     infoBar.transform.position.y - textHeightInMeters *1/3,
                                                      infoBar.transform.position.z);
 
         clickMeTimer = gameObject.AddComponent<UnityTimer>();
