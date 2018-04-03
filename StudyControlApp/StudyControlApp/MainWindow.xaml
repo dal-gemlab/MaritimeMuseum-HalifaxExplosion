@@ -1,0 +1,86 @@
+﻿<Window x:Class="StudyControlApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudyControlApp.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowStartupLocation="CenterScreen">
+    
+    <Window.DataContext>
+        <local:MainWindowViewModel></local:MainWindowViewModel>
+    </Window.DataContext>
+
+    <Grid Margin="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Participant ID: " Grid.Column="0"></TextBlock>
+                <TextBox Grid.Column="1" 
+                         IsEnabled="{Binding NotRunning}" 
+                         Text="{Binding ParticipantID, Mode=TwoWay}">
+
+                </TextBox>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Condition ID: " Grid.Column="0"></TextBlock>
+                <TextBox Grid.Column="1"  
+                         IsEnabled="{Binding NotRunning}"    
+                         Text="{Binding Condition, Mode=TwoWay}">
+                </TextBox>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="HoloLens IP: " Grid.Column="0"></TextBlock>
+                <TextBox Grid.Column="1" 
+                         IsEnabled="{Binding NotRunning}" 
+                         Text="{Binding HoloLensAddr, Mode=TwoWay}">
+
+                </TextBox>
+            </Grid>
+
+
+            <Separator Height="20" Background="Transparent"></Separator>
+            <Button Margin="3" IsEnabled="{Binding NotRunning}" Content="Start" Command="{Binding StartCommand}"></Button>
+            <Button Margin="3" Content="Stop" Command="{Binding StopCommand}"></Button>
+
+            <Separator Height="10"/>
+            <TextBlock Text="Hololens Commands:"></TextBlock>
+            <Button Margin="3" Content="Reset" Command="{Binding ControlCommand}" CommandParameter="Reset"></Button>
+            <Button Margin="3" Content="Load Positions" Command="{Binding ControlCommand}" CommandParameter="Load"></Button>
+            <Button Margin="3" Content="Save Positions" Command="{Binding ControlCommand}" CommandParameter="Save"></Button>
+            <Button Margin="3" Content="Translate" Command="{Binding ControlCommand}" CommandParameter="Translate"></Button>
+            <Button Margin="3" Content="Rotate" Command="{Binding ControlCommand}" CommandParameter="Rotate"></Button>
+
+
+        </StackPanel>
+
+            <Grid Grid.Column="1" Margin="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBox Text="OSC Messages:" ></TextBox>
+                <ListView Grid.Row="1" ItemsSource="{Binding OscMessages}">
+
+                </ListView>
+            </Grid>
+    </Grid>
+
+</Window>

@@ -3710,7 +3710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pictureFrameMaterial: {fileID: 2100000, guid: 8f4f15c8ea654254cb4ec9e86f25622e,
     type: 2}
-  PictureCollection: {fileID: 0}
+  PictureCollection: {fileID: 1475296642}
   gazeTarget: {fileID: 0}
 --- !u!4 &818890854 stripped
 Transform:
