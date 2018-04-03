@@ -8,6 +8,7 @@ public class CameraMaterialCaster : MonoBehaviour {
 
     public Material pictureFrameMaterial;
     public PictureFrameCollection PictureCollection;
+    public GameObject gazeTarget;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,11 @@ public class CameraMaterialCaster : MonoBehaviour {
         var ray = new Ray(this.transform.position, Camera.main.transform.forward);
 
         if (!Physics.Raycast(ray, out hit))
+        {
+            gazeTarget = null;
             return;
+        }
+        gazeTarget = hit.collider.gameObject;
 
         if (hit.collider.CompareTag("PictureFrame"))
             PictureFrameCollection.Instance.PictureWasStarred(hit.collider.gameObject.GetInstanceID());

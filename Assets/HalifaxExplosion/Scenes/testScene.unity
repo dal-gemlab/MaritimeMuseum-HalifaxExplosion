@@ -3711,6 +3711,7 @@ MonoBehaviour:
   pictureFrameMaterial: {fileID: 2100000, guid: 8f4f15c8ea654254cb4ec9e86f25622e,
     type: 2}
   PictureCollection: {fileID: 0}
+  gazeTarget: {fileID: 0}
 --- !u!4 &818890854 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010330146594, guid: bfdc7f60d7205c84f82a4806a5352d60,
@@ -4053,6 +4054,53 @@ Transform:
   m_Father: {fileID: 1475296641}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1796704631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1796704633}
+  - component: {fileID: 1796704632}
+  m_Layer: 0
+  m_Name: OSCLoggerNControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1796704632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796704631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04413843b376e64b81f236c34c44304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetAddr: 127.0.0.1
+  OutGoingPort: 9090
+  InComingPort: 9091
+  updateIntervalInSeconds: 0.25
+  SpeechManager: {fileID: 2055741954}
+  hololensCamera: {fileID: 1582}
+  materialCaster: {fileID: 796889278}
+--- !u!4 &1796704633
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796704631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.059490383, y: -0.54636985, z: 1.9963098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &1922841392
 Material:
   serializedVersion: 6
