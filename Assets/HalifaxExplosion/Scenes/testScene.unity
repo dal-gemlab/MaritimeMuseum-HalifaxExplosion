@@ -4083,7 +4083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetAddr: 127.0.0.1
   OutGoingPort: 9090
-  InComingPort: 9091
+  InComingPort: 9092
   updateIntervalInSeconds: 0.25
   SpeechManager: {fileID: 2055741954}
   hololensCamera: {fileID: 1582}

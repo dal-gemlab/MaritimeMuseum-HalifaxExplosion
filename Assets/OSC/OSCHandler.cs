@@ -95,7 +95,9 @@ public class OSCHandler : MonoBehaviour
 		//Initialize OSC clients (transmitters)
 		// Sender
 
-		CreateClient(id, IPAddress.Parse(targetAddr), outGoingPort);
+	    
+
+        CreateClient(id, IPAddress.Parse(targetAddr), outGoingPort);
 		
 		//Initialize OSC servers (listeners)
 		// Receiver
@@ -119,15 +121,30 @@ public class OSCHandler : MonoBehaviour
 			return _servers;
 		}
 	}
-	#endregion
-	
-	#region Methods
-	
-	/// <summary>
-	/// Ensure that the instance is destroyed when the game is stopped in the Unity editor
-	/// Close all the OSC clients and servers
-	/// </summary>
-	void OnApplicationQuit() 
+    #endregion
+
+    #region Methods
+
+    void OnDestroy()
+    {
+        foreach (KeyValuePair<string, ClientLog> pair in _clients)
+        {
+            pair.Value.client.Close();
+        }
+
+        foreach (KeyValuePair<string, ServerLog> pair in _servers)
+        {
+            pair.Value.server.Close();
+        }
+
+        _instance = null;
+    }
+
+    /// <summary>
+    /// Ensure that the instance is destroyed when the game is stopped in the Unity editor
+    /// Close all the OSC clients and servers
+    /// </summary>
+    void OnApplicationQuit() 
 	{
 		foreach(KeyValuePair<string,ClientLog> pair in _clients)
 		{

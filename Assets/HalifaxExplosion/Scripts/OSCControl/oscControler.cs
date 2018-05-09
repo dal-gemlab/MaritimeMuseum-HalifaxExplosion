@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 using HoloToolkit.Unity.InputModule;
@@ -22,27 +23,34 @@ public class oscControler : MonoBehaviour, IInputClickHandler {
     private Coroutine loggerCoroutine;
 
     private int clickCountSinceLastSend;
-
+    private int lastLogIndex;
     
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         OSCHandler.Instance.Init(oscID, TargetAddr, OutGoingPort, InComingPort);
+        InputManager.Instance.AddGlobalListener(this.gameObject);
         servers = new Dictionary<string, ServerLog>();
         clients = new Dictionary<string, ClientLog>();
         clickCountSinceLastSend = 0;
-        
+        lastLogIndex = 0;
+        loggerCoroutine = StartCoroutine(SendLogData(updateIntervalInSeconds));
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
         OSCHandler.Instance.UpdateLogs();
+        servers = OSCHandler.Instance.Servers;
         //Controll sequence
         foreach (KeyValuePair<string, ServerLog> item in servers)
         {
-            if (item.Value.log.Count > 0)
+            if (item.Value.log.Count > lastLogIndex)
             {
+                lastLogIndex++;
                 int lastPacketIndex = item.Value.packets.Count - 1;
                 if(string.Compare(item.Value.packets[lastPacketIndex].Address,oscControlPath) == 0)
                 {
@@ -113,7 +121,15 @@ public class oscControler : MonoBehaviour, IInputClickHandler {
                 }
                 else
                 {
-                    data.Add("false");
+                    if (materialCaster.gazeTarget.CompareTag("PictureFrame"))
+                    {
+                        data.Add(materialCaster.gazeTarget.GetComponent<PictureFrame>().GetImageName());
+                    }
+                    else
+                    {
+                        data.Add("false");
+                    }
+                    
                 }
             }
             else
@@ -124,6 +140,7 @@ public class oscControler : MonoBehaviour, IInputClickHandler {
             data.Add(clickCountSinceLastSend);
 
             OSCHandler.Instance.SendMessageToClient(oscID, oscSendPath, data);
+
             clickCountSinceLastSend = 0;
             yield return new WaitForSeconds(updateInterval);
         }

@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:StudyControlApp.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" WindowStartupLocation="CenterScreen">
-    
+
     <Window.DataContext>
         <local:MainWindowViewModel></local:MainWindowViewModel>
     </Window.DataContext>
 
-    <Grid Margin="3">
+    <Grid Margin="3" Background="{Binding BackgroundColor, Mode=OneWay}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -25,7 +25,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Participant ID: " Grid.Column="0"></TextBlock>
                 <TextBox Grid.Column="1" 
-                         IsEnabled="{Binding NotRunning}" 
+                         IsEnabled="{Binding NotLogging}" 
                          Text="{Binding ParticipantID, Mode=TwoWay}">
 
                 </TextBox>
@@ -37,7 +37,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Condition ID: " Grid.Column="0"></TextBlock>
                 <TextBox Grid.Column="1"  
-                         IsEnabled="{Binding NotRunning}"    
+                         IsEnabled="{Binding NotLogging}"    
                          Text="{Binding Condition, Mode=TwoWay}">
                 </TextBox>
             </Grid>
@@ -56,31 +56,35 @@
 
 
             <Separator Height="20" Background="Transparent"></Separator>
-            <Button Margin="3" IsEnabled="{Binding NotRunning}" Content="Start" Command="{Binding StartCommand}"></Button>
-            <Button Margin="3" Content="Stop" Command="{Binding StopCommand}"></Button>
+            <Button Margin="3" IsEnabled="{Binding NotRunning}" Content="Start OSC Server" Command="{Binding StartCommand}" Height="44"></Button>
+            <Button Margin="3" Content="Stop OSC Server" Command="{Binding StopCommand}" Height="44"></Button>
 
             <Separator Height="10"/>
+            <TextBlock Text="Study Recording Commands:"></TextBlock>
+            <Button Margin="3" Content="Start Log" Command="{Binding ControlCommand}" CommandParameter="StartLog" Height="44"></Button>
+            <Button Margin="3" Content="Stop Log" Command="{Binding ControlCommand}" CommandParameter="StopLog" Height="44"></Button>
+            <Separator Height="10"/>
             <TextBlock Text="Hololens Commands:"></TextBlock>
-            <Button Margin="3" Content="Reset" Command="{Binding ControlCommand}" CommandParameter="Reset"></Button>
-            <Button Margin="3" Content="Load Positions" Command="{Binding ControlCommand}" CommandParameter="Load"></Button>
-            <Button Margin="3" Content="Save Positions" Command="{Binding ControlCommand}" CommandParameter="Save"></Button>
-            <Button Margin="3" Content="Translate" Command="{Binding ControlCommand}" CommandParameter="Translate"></Button>
-            <Button Margin="3" Content="Rotate" Command="{Binding ControlCommand}" CommandParameter="Rotate"></Button>
+            <Button Margin="3" Content="Reset" Command="{Binding ControlCommand}" CommandParameter="Reset" Height="44"></Button>
+            <Button Margin="3" Content="Load Positions" Command="{Binding ControlCommand}" CommandParameter="Load" Height="44"></Button>
+            <Button Margin="3" Content="Save Positions" Command="{Binding ControlCommand}" CommandParameter="Save" Height="44"></Button>
+            <Button Margin="3" Content="Translate" Command="{Binding ControlCommand}" CommandParameter="Translate" Height="44"></Button>
+            <Button Margin="3" Content="Rotate" Command="{Binding ControlCommand}" CommandParameter="Rotate" Height="44"></Button>
 
 
         </StackPanel>
 
-            <Grid Grid.Column="1" Margin="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-                <TextBox Text="OSC Messages:" ></TextBox>
-                <ListView Grid.Row="1" ItemsSource="{Binding OscMessages}">
+            <TextBox Text="OSC Messages:" ></TextBox>
+            <ListView Grid.Row="1" ItemsSource="{Binding OscMessages}">
 
-                </ListView>
-            </Grid>
+            </ListView>
+        </Grid>
     </Grid>
 
 </Window>

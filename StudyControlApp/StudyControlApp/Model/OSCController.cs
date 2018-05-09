@@ -37,32 +37,37 @@ namespace StudyControlApp.Model
             sender.Connect();
             receiver = new OscReceiver(ReceiverPort);
             receiverThread = new Thread(ListenLoop);
+            ReceiverSemaphore = new Semaphore(1,1);
         }
 
         public void StartReceiving()
         {
             receiver.Connect();
             receiverThread.Start();
+            //Task.Factory.StartNew(ListenLoop);
+
+
         }
 
         public void SendCommand(string command)
         {
-            sender.Send(new OscMessage(SenderPath,command));
+            Task.Factory.StartNew(() => sender.Send(new OscMessage(SenderPath, command)));
         }
 
         private void ListenLoop()
         {
+            
             try
             {
                 while (receiver.State != OscSocketState.Closed)
                 {
                     if (receiver.State == OscSocketState.Connected)
                     {
-                        ReceiverSemaphore.WaitOne();
+                        //ReceiverSemaphore.WaitOne();
                         data = receiver.Receive();
                         if (((OscMessage)data).Address == ReceiverPath)
-                            OnDataReceived?.Invoke(data);
-                        ReceiverSemaphore.Release();
+                          OnDataReceived?.Invoke(data);
+                        //ReceiverSemaphore.Release();
                     }
                 }
             }
@@ -72,6 +77,7 @@ namespace StudyControlApp.Model
                 {
                     Console.WriteLine("Exception in listen loop");
                     Console.WriteLine(ex.Message);
+                    
                 }
                 else
                 {

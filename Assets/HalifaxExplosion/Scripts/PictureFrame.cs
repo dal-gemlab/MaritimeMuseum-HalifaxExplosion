@@ -37,15 +37,21 @@ public class PictureFrame : MonoBehaviour {
         }
     }
 
+    public string GetImageName()
+    {
+        if (render.material.mainTexture != null && render.material.GetFloat("_Alpha") != 0)
+            return render.material.mainTexture.ToString();
+        return "NoImage";
+    }
+
     IEnumerator Fade()
     {
         
-        Color c;
         while (render.material.GetFloat("_Alpha") > FadeAlphaCutout)
         {
-            render.material.SetFloat("_Alpha", render.material.GetFloat("_Alpha") - 0.0005f);
+            render.material.SetFloat("_Alpha", render.material.GetFloat("_Alpha") - 0.01f);
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.1f);
         }
 
         render.material.SetFloat("_Alpha", 0);
