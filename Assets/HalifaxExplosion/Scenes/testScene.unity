@@ -4081,9 +4081,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04413843b376e64b81f236c34c44304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetAddr: 127.0.0.1
+  TargetAddr: 192.168.0.108
   OutGoingPort: 9090
-  InComingPort: 9092
+  InComingPort: 9091
   updateIntervalInSeconds: 0.25
   SpeechManager: {fileID: 2055741954}
   hololensCamera: {fileID: 1582}

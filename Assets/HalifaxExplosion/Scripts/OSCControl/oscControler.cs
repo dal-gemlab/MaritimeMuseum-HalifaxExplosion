@@ -35,7 +35,7 @@ public class oscControler : MonoBehaviour, IInputClickHandler {
         clients = new Dictionary<string, ClientLog>();
         clickCountSinceLastSend = 0;
         lastLogIndex = 0;
-        loggerCoroutine = StartCoroutine(SendLogData(updateIntervalInSeconds));
+        //loggerCoroutine = StartCoroutine(SendLogData(updateIntervalInSeconds));
     }
 
 
@@ -80,7 +80,8 @@ public class oscControler : MonoBehaviour, IInputClickHandler {
                                 loggerCoroutine = StartCoroutine(SendLogData(updateIntervalInSeconds));
                                 break;
                             case "StopLog":
-                                StopCoroutine(loggerCoroutine);
+                                if(loggerCoroutine!= null)
+                                    StopCoroutine(loggerCoroutine);
                                 break;
                             default:
                                 break;
