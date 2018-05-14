@@ -29,7 +29,11 @@ namespace StudyControlApp.Model
 
         public void SaveData()
         {
-            engine.WriteFile(filename, dataEntryList);
+            var path = Directory.GetCurrentDirectory() + @"\Logs";
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            engine.WriteFile(path + @"\" + filename, dataEntryList);
         }
         }
 }
