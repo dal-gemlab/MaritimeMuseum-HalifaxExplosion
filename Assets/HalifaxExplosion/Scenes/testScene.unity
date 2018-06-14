@@ -4105,7 +4105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecd5e9cf3394f64ba2729034e968be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PictureSize: 0.5
+  PictureSize: 0.75
   Radius: 0
   PictureFramePrefab: {fileID: 1946256762719802, guid: c633568889368ba41b23d35a2f068c96,
     type: 2}

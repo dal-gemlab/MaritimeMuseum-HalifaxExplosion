@@ -50,7 +50,7 @@ public class PictureFrame : MonoBehaviour {
         
         while (render.material.GetFloat("_Alpha") > FadeAlphaCutout)
         {
-            render.material.SetFloat("_Alpha", render.material.GetFloat("_Alpha") - 0.01f);
+            render.material.SetFloat("_Alpha", render.material.GetFloat("_Alpha") - 0.05f);
 
             yield return new WaitForSeconds(0.1f);
         }
