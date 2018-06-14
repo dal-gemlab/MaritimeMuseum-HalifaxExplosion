@@ -168,6 +168,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         }
         //Destroy the text
         Destroy(instructionalText.gameObject);
+        PictureFrameCollection.Instance.AdjustPlanePositions();
         ChangeState(State.Show);
     }
 
@@ -186,6 +187,17 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
             ManipulateToMove cap = hologram.GetComponent<ManipulateToMove>();
             if(cap == null)
                 hologram.AddComponent<ManipulateToMove>();
+        }
+
+        GameObject[] frames = GameObject.FindGameObjectsWithTag("PictureFrame");
+        foreach (GameObject frame in frames)
+        {
+            ManipulateToMove cap = frame.GetComponent<ManipulateToMove>();
+            if (cap == null)
+            {
+                frame.AddComponent<ManipulateToMove>();
+                frame.GetComponent<PictureFrame>().StopFade();
+            }
         }
     }
 
@@ -216,7 +228,8 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
     {
         if (GUILayout.Button("Finish Placement"))
         {
-            this.ChangeState(State.Show);
+            SaveBuldingsTransformToFile();
+            //MatchPositionsFromFile();
         }
         if (GUILayout.Button("Change to Adjusting"))
         {
@@ -242,11 +255,11 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
     {
         List<Transform> positions = PositionFileHelper.GetRelativePositions(positionsFile);
         GameObject[] holograms = GameObject.FindGameObjectsWithTag("Hologram");
-
+        GameObject[] framesGOs = GameObject.FindGameObjectsWithTag("PictureFrame");
         if (positions == null)
             return;
 
-        if(positions.Count != holograms.Length)
+        if(positions.Count != holograms.Length + framesGOs.Length)
         {
             Debug.LogError("Postion file has a different number of buldings. Are you sure it is up to date?");
             return;
@@ -265,6 +278,13 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                     holograms[i].transform.localRotation = positions[j].localRotation;
                     loadedCount++;
                 }
+                if (framesGOs[i].name == positions[j].name)
+                {
+                    Debug.Log("Current: " + framesGOs[i].name + "From file: " + positions[j].name);
+                    framesGOs[i].transform.localPosition = positions[j].localPosition;
+                    framesGOs[i].transform.localRotation = positions[j].localRotation;
+                    loadedCount++;
+                }
             }
         }
         Debug.LogFormat("Loaded {0} positions from file", loadedCount);
@@ -280,6 +300,14 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         {
             transforms.Add(go.transform);
         }
+
+        GameObject[] framesGOs = GameObject.FindGameObjectsWithTag("PictureFrame");
+        foreach (GameObject framesGO in framesGOs)
+        {
+            transforms.Add(framesGO.transform);
+        }
+
+
         PositionFileHelper.SaveRelativePositions(transforms, positionsFile);
     }
 

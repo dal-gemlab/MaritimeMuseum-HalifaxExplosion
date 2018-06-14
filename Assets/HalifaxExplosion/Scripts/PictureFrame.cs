@@ -18,7 +18,7 @@ public class PictureFrame : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         render = GetComponent<MeshRenderer>();
-        StartCoroutine(Fade());
+	    fadeCorroutine = StartCoroutine(Fade());
     }
 
     public void SetImage(Texture tex)
@@ -27,6 +27,7 @@ public class PictureFrame : MonoBehaviour {
         render.material.SetFloat("_Alpha", 1);
         if(fadeCorroutine == null)
             fadeCorroutine = StartCoroutine(Fade());
+        Debug.Log("Frame # " + gameObject.name + " was updated");
     }
 
     public void StarredAt()
@@ -56,6 +57,14 @@ public class PictureFrame : MonoBehaviour {
 
         render.material.SetFloat("_Alpha", 0);
         fadeCorroutine = null;
+    }
+
+    public void StopFade()
+    {
+        if(fadeCorroutine != null)
+            StopCoroutine(fadeCorroutine);
+        render.material.SetFloat("_Alpha", 1);
+
     }
 	
 }

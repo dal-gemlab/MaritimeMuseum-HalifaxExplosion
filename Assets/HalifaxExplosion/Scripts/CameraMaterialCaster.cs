@@ -54,14 +54,20 @@ public class CameraMaterialCaster : MonoBehaviour {
                     subMeshTris[j + 1] == hittedTriangle[1] &&
                     subMeshTris[j + 2] == hittedTriangle[2])
                 {
-                 //   Debug.Log(string.Format("triangle index:{0} submesh index:{1} submesh triangle index:{2}", hit.triangleIndex, i, j / 3));
+                   // Debug.Log(string.Format("triangle index:{0} submesh index:{1} submesh triangle index:{2}", hit.triangleIndex, i, j / 3));
                     submeshIndex = i;
                 }
             }
         }
 
-        if(submeshIndex >0)
+	    
+
+        if (submeshIndex >0)
         {
+            var meshName = meshCollider.GetComponentInChildren<MeshRenderer>().materials[submeshIndex].name;
+            if(string.Equals(meshName, "wood3DS (Instance)") || string.Equals(meshName, "Color_A06 (Instance)"))
+               return;
+
             Debug.Log(string.Format("Material name: {0}", meshCollider.GetComponentInChildren<MeshRenderer>().materials[submeshIndex].name));
             var image = meshCollider.GetComponentInChildren<MeshRenderer>().materials[submeshIndex].mainTexture;
             PictureCollection.SetTextureToFrame(ray, image);

@@ -1,4 +1,5 @@
-﻿using HoloToolkit.Unity;
+﻿using System;
+using HoloToolkit.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,11 +20,13 @@ public class PictureFrameCollection : Singleton<PictureFrameCollection> {
     void Start () {
         frames = new Dictionary<int, PictureFrame>();
         planes = new Dictionary<int, Plane>();
+        int frameNumber = 0;
 
         foreach(Transform child in GetComponentInChildren<Transform>())
         {
             var frame = Instantiate(PictureFramePrefab);
-
+            frame.name += frameNumber;
+            frameNumber++;
 
             frame.transform.position = child.position;
             frame.transform.rotation = child.rotation;
@@ -38,10 +41,38 @@ public class PictureFrameCollection : Singleton<PictureFrameCollection> {
 
             planes.Add(frame.GetInstanceID(), framePlane);
             frames.Add(frame.GetInstanceID(), frame.GetComponent<PictureFrame>());
-        }
-       
 
-	}
+
+            Destroy(child.gameObject);
+        }
+
+        GameObject[] framesGOs = GameObject.FindGameObjectsWithTag("PictureFrame");
+        foreach (var frameGO in framesGOs)
+        {
+            frameGO.transform.parent = this.transform;
+        }
+
+
+
+
+    }
+
+    //void Update()
+    //{
+    //    foreach (var pictureFrame in frames)
+    //    {
+    //        DrawPlane(planes[pictureFrame.Key], pictureFrame.Value.transform);
+    //    }
+    //}
+
+    public void AdjustPlanePositions()
+    {
+        foreach (var pictureFrame in frames)
+        {
+            planes[pictureFrame.Key] =
+                new Plane(pictureFrame.Value.transform.forward * -1, pictureFrame.Value.transform.position);
+        }
+    }
 
     public void PictureWasStarred(int frameID)
     {
@@ -70,6 +101,37 @@ public class PictureFrameCollection : Singleton<PictureFrameCollection> {
         if (selectedFrameID != 0)
             frames[selectedFrameID].SetImage(tex);
     }
-	
 
+
+    public void DrawPlane(Plane plane, Transform frame)
+    {
+
+        Vector3 v3;
+        var position = frame.position;
+        var normal = plane.normal;
+
+        if (plane.normal.normalized != Vector3.forward)
+            v3 = Vector3.Cross(normal, Vector3.forward).normalized * normal.magnitude;
+        else
+            v3 = Vector3.Cross(normal, Vector3.up).normalized * normal.magnitude;
+
+        
+
+
+        var corner0 = (position + v3);
+        var corner2 = position - v3;
+        var q = Quaternion.AngleAxis(90.0f, normal);
+        v3 = q * v3;
+        var corner1 = position + v3;
+        var corner3 = position - v3;
+
+        Debug.DrawLine(corner0, corner2, Color.green);
+        Debug.DrawLine(corner1, corner3, Color.green);
+        Debug.DrawLine(corner0, corner1, Color.green);
+        Debug.DrawLine(corner1, corner2, Color.green);
+        Debug.DrawLine(corner2, corner3, Color.green);
+        Debug.DrawLine(corner3, corner0, Color.green);
+        Debug.DrawRay(position, normal, Color.red);
+    }
+    
 }
