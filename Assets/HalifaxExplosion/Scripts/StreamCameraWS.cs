@@ -60,7 +60,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         float[] arrayQ = new float[4] { q.x, q.y, q.z,q.w };
 
 //        notABuilding.SetPosRot(arrayP, arrayQ);
-        var data = new StreamingData(arrayP, arrayQ, false, "");
+        var data = new StreamingData(arrayP, arrayQ, false, "",false);
 
         if (shouldSend)
             sendJS(data);
@@ -86,7 +86,9 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         float[] arrayP = new float[3] { p.x, p.y, p.z };
         float[] arrayQ = new float[4] { q.x, q.y, q.z, q.w };
 
-        var data = new StreamingData(arrayP,arrayQ,true,gameObjectName);
+        var goingToExpand = GameObject.Find(gameObjectName).GetComponent<ClickToExpand>().IsEnlarged;
+
+        var data = new StreamingData(arrayP,arrayQ,true,gameObjectName, goingToExpand);
 
         if (shouldSend)
             sendJS(data);
@@ -214,6 +216,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         public float[] quat;
         public bool click;
         public string clickedName;
+        public bool isBuildingEnlarged;
         public bool isAnchorUpdate;
 
         public StreamingData(float[] pos, float[] quat, bool click)
@@ -224,9 +227,10 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
             isAnchorUpdate = false;
         }
 
-        public StreamingData(float[] pos, float[] quat, bool click, string clickedName) : this(pos, quat, click)
+        public StreamingData(float[] pos, float[] quat, bool click, string clickedName, bool isBuildingEnlarged) : this(pos, quat, click)
         {
             this.clickedName = clickedName;
+            this.isBuildingEnlarged = isBuildingEnlarged;
             isAnchorUpdate = false;
         }
 
