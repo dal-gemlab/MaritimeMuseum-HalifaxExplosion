@@ -23,8 +23,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
 #endif
     public GameObject hololensCamera;
     public GameObject anchor;
-    //Reusing the same data structure...
-    BuildingJS notABuilding;
+
     public bool shouldSend;
     private string addr;
     private bool isAsyncBusy;
@@ -36,7 +35,6 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         isConnected = false;
         addr = null;
         connectToWS();
-        notABuilding = new BuildingJS();
         shouldSend = false;
         StartCoroutine(remoteAnchorCoroutine());
         isAsyncBusy = false;
@@ -61,10 +59,11 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         float[] arrayP = new float[3] { p.x, p.y, p.z };
         float[] arrayQ = new float[4] { q.x, q.y, q.z,q.w };
 
-        notABuilding.SetPosRot(arrayP, arrayQ);
-        
+//        notABuilding.SetPosRot(arrayP, arrayQ);
+        var data = new StreamingData(arrayP, arrayQ, false, "");
+
         if (shouldSend)
-            sendJS(notABuilding);
+            sendJS(data);
         divider = !divider;
     }
 
@@ -80,9 +79,17 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
 
     private void BuildingClicked(string gameObjectName)
     {
-        var clickedBuilding = new BuildingJS(gameObjectName);
+        //var clickedBuilding = new BuildingJS(gameObjectName);
+        var p = hololensCamera.transform.position;
+        var q = hololensCamera.transform.rotation;
+
+        float[] arrayP = new float[3] { p.x, p.y, p.z };
+        float[] arrayQ = new float[4] { q.x, q.y, q.z, q.w };
+
+        var data = new StreamingData(arrayP,arrayQ,true,gameObjectName);
+
         if (shouldSend)
-            sendJS(clickedBuilding);
+            sendJS(data);
     }
 
     IEnumerator remoteAnchorCoroutine()
@@ -101,15 +108,18 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         float[] arrayP = new float[3] { p.x, p.y, p.z };
         float[] arrayQ = new float[4] { q.x, q.y, q.z, q.w };
 
-        var notABuildingButAnAnchor = new BuildingJS("anchor", "", "");
-        notABuildingButAnAnchor.SetPosRot(arrayP, arrayQ);
+        var data = new StreamingData(arrayP,arrayQ,false);
+        data.SetAnchorUpdate();
+
+        //var notABuildingButAnAnchor = new BuildingJS("anchor", "", "");
+        //notABuildingButAnAnchor.SetPosRot(arrayP, arrayQ);
 
         if (shouldSend)
-            sendJS(notABuildingButAnAnchor);
+            sendJS(data);
     }
 
 #if UNITY_EDITOR
-    private void sendJS(BuildingJS data)
+    private void sendJS(StreamingData data)
     {
         var json = JsonUtility.ToJson(data);
         ws.Send(json);
@@ -154,9 +164,9 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         
     }
 
-    private async void sendJS(BuildingJS data)
+    private async void sendJS(StreamingData data)
     {
-        var ser = new DataContractJsonSerializer(typeof(BuildingJS));
+        var ser = new DataContractJsonSerializer(typeof(StreamingData));
         var js = new System.IO.MemoryStream();
         ser.WriteObject(js, data);
         
@@ -197,4 +207,34 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
     }
 
 #endif
+
+    public class StreamingData
+    {
+        public float[] pos;
+        public float[] quat;
+        public bool click;
+        public string clickedName;
+        public bool isAnchorUpdate;
+
+        public StreamingData(float[] pos, float[] quat, bool click)
+        {
+            this.pos = pos;
+            this.quat = quat;
+            this.click = click;
+            isAnchorUpdate = false;
+        }
+
+        public StreamingData(float[] pos, float[] quat, bool click, string clickedName) : this(pos, quat, click)
+        {
+            this.clickedName = clickedName;
+            isAnchorUpdate = false;
+        }
+
+        public void SetAnchorUpdate()
+        {
+            isAnchorUpdate = true;
+        }
+
+    }
+
 }

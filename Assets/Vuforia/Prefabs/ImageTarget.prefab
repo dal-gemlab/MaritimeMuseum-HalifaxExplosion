@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadfb90286c81fd42a6785e4e7cd3024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: WorldAnchor
+  mTrackableName: AnchorWithLink
   mPreserveChildSize: 1
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/HalifaxExplosion.xml
@@ -240,7 +240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1085554428193244
 GameObject:
   m_ObjectHideFlags: 1
@@ -267,7 +267,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4463093650644104}
-  - component: {fileID: 64455912368461730}
   - component: {fileID: 64698326482106276}
   - component: {fileID: 114610354359906060}
   - component: {fileID: 114482264679134560}
@@ -294,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1156962058563788
 GameObject:
   m_ObjectHideFlags: 1
@@ -309,7 +308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1166711218151852
 GameObject:
   m_ObjectHideFlags: 1
@@ -361,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1175095746451390
 GameObject:
   m_ObjectHideFlags: 1
@@ -579,7 +578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1519344137174478
 GameObject:
   m_ObjectHideFlags: 1
@@ -594,7 +593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1520755905303576
 GameObject:
   m_ObjectHideFlags: 1
@@ -607,6 +606,21 @@ GameObject:
   - component: {fileID: 33653145158984176}
   m_Layer: 0
   m_Name: Mesh1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1541430803355752
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4674469898184300}
+  m_Layer: 0
+  m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,6 +657,37 @@ GameObject:
   m_Layer: 0
   m_Name: G_04_XYZ1
   m_TagString: Hologram
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1616161996804172
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4055489205969456}
+  - component: {fileID: 114403358847889990}
+  m_Layer: 0
+  m_Name: Frames
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1626546859341520
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4917287714734804}
+  m_Layer: 0
+  m_Name: Frame
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -692,6 +737,21 @@ GameObject:
   - component: {fileID: 4190383399130434}
   m_Layer: 0
   m_Name: Group1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!1 &1685637559606828
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4463763982265974}
+  m_Layer: 0
+  m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,7 +807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1815311447639476
 GameObject:
   m_ObjectHideFlags: 1
@@ -851,7 +911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1919578695019118
 GameObject:
   m_ObjectHideFlags: 1
@@ -866,7 +926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1926158264312478
 GameObject:
   m_ObjectHideFlags: 1
@@ -898,7 +958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4038765037167216
 Transform:
   m_ObjectHideFlags: 1
@@ -911,6 +971,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4382166720604642}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4055489205969456
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1616161996804172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4674469898184300}
+  - {fileID: 4917287714734804}
+  - {fileID: 4463763982265974}
+  m_Father: {fileID: 4206358333953218}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4057877435682104
 Transform:
@@ -1003,7 +1079,7 @@ Transform:
   m_LocalRotation: {x: 0.00000007450579, y: -0.000000014901158, z: -0.000000014901158,
     w: 1}
   m_LocalPosition: {x: -0.00013463195, y: 0.00005000732, z: -0.0002608504}
-  m_LocalScale: {x: 0.3937012, y: 0.39370096, z: 0.3937012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4463093650644104}
   m_RootOrder: 1
@@ -1098,8 +1174,9 @@ Transform:
   - {fileID: 4426942760980404}
   - {fileID: 4725145164843298}
   - {fileID: 4160901905147908}
-  - {fileID: 4463093650644104}
   - {fileID: 4632441026204044}
+  - {fileID: 4463093650644104}
+  - {fileID: 4055489205969456}
   m_Father: {fileID: 400000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1280,14 +1357,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104045900628202}
   m_LocalRotation: {x: -0.26280832, y: -0.64967155, z: -0.65589285, w: -0.28046972}
-  m_LocalPosition: {x: -7.467559, y: -7.055079, z: -0.6916151}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: -7.4678, y: -7.0559, z: -0.69147}
+  m_LocalScale: {x: 3.9293761, y: 3.9293754, z: 3.9293754}
   m_Children:
   - {fileID: 4602866563830948}
   - {fileID: 4104977650853524}
   m_Father: {fileID: 4206358333953218}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 315.1858, y: 88.56888, z: 89.88106}
+--- !u!4 &4463763982265974
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1685637559606828}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -11.26, y: -16.42, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1.0000005, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 4055489205969456}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4500001908351072
 Transform:
   m_ObjectHideFlags: 1
@@ -1363,11 +1453,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473395135543132}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -13.90966, y: -7.22, z: 4.58}
+  m_LocalPosition: {x: -13.90966, y: -7.22, z: 4.3}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4206358333953218}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4635700530078422
 Transform:
@@ -1382,6 +1472,19 @@ Transform:
   m_Father: {fileID: 4094733519231106}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4674469898184300
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541430803355752}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 5.4, y: -7.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4055489205969456}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!4 &4680028530120882
 Transform:
   m_ObjectHideFlags: 1
@@ -1504,6 +1607,19 @@ Transform:
   m_Father: {fileID: 4181203254146816}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4917287714734804
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1626546859341520}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -11.26, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1.0000005, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 4055489205969456}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
 --- !u!23 &23005666799418582
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -2484,7 +2600,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a55f649979ae424478d033b71942d549, type: 3}
@@ -2502,20 +2618,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300014, guid: e471417b1a3efae479931b1ebc5cab0f, type: 3}
---- !u!64 &64455912368461730
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1104045900628202}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: ebdda8dd9524e0f40918a0fd2cdec000, type: 3}
 --- !u!64 &64482075711710136
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -2596,7 +2698,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: dbc9d6e6cd6c0884a967c104a0a44dd2, type: 3}
@@ -2610,10 +2712,10 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_InflateMesh: 0
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: ebdda8dd9524e0f40918a0fd2cdec000, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 494ec37e57c45bc46a1c36bfeb3de1f3, type: 3}
 --- !u!64 &64896699467099762
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -2624,7 +2726,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 74b9b6149bec6ce46b2e512619f5a9e5, type: 3}
@@ -2667,7 +2769,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114093266386314456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2680,7 +2783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: Veith House
   buildingDescription: 
 --- !u!114 &114104081743501320
 MonoBehaviour:
@@ -2696,7 +2799,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114172156297973248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2709,7 +2813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: French Cable Wharf
   buildingDescription: 
 --- !u!114 &114172195535136854
 MonoBehaviour:
@@ -2723,7 +2827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: Sugar Refinery
   buildingDescription: 
 --- !u!114 &114173629374507852
 MonoBehaviour:
@@ -2739,7 +2843,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114184768448873962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2754,7 +2859,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114204795464329026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2769,7 +2875,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114328069916210934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2784,7 +2891,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114380455656996896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2797,8 +2905,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: Tufts Cove Generating Station
   buildingDescription: 
+--- !u!114 &114403358847889990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1616161996804172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd5e9cf3394f64ba2729034e968be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PictureSize: 0.75
+  Radius: 0
+  PictureFramePrefab: {fileID: 1946256762719802, guid: c633568889368ba41b23d35a2f068c96,
+    type: 2}
 --- !u!114 &114412543091889228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2825,7 +2948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: Irving Shipyard
   buildingDescription: 
 --- !u!114 &114482264679134560
 MonoBehaviour:
@@ -2839,7 +2962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: Mulgrave Park
   buildingDescription: 
 --- !u!114 &114549457846352760
 MonoBehaviour:
@@ -2855,7 +2978,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114582658750273750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2868,7 +2992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: Graving Dock
   buildingDescription: 
 --- !u!114 &114610354359906060
 MonoBehaviour:
@@ -2884,7 +3008,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114616059839528420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2899,7 +3024,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114717562716393892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2912,7 +3038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: XYZ
   buildingDescription: 
 --- !u!114 &114737334129322480
 MonoBehaviour:
@@ -2928,7 +3054,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114767430433271766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2954,7 +3081,8 @@ MonoBehaviour:
   NameBarPrefab: {fileID: 1594076405444426, guid: 3c47d831a18c8ae45a9be878fe8ac5f3,
     type: 2}
   textHeightInMeters: 0.15
-  clickMeTipTimer: 2
+  hoverTipTimer: 2
+  hoverFocusTtext: Click to Expand
 --- !u!114 &114830941748232914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2967,7 +3095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: Bell Memorial
   buildingDescription: 
 --- !u!114 &114992731252096106
 MonoBehaviour:
@@ -2981,5 +3109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Name me
+  buildingName: Richmond School
   buildingDescription: 
