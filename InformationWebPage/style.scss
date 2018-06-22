@@ -1,0 +1,25 @@
+
+$background-color: #303030;
+$primary-color: #D6D6D6;
+$containerMargin: 10px;
+
+body{
+	color: $primary-color;
+	background-color: $background-color;
+}
+
+.display-2{
+	text-align: center;
+}
+.img-fluid{
+	margin: $containerMargin;
+}
+
+// .container-fluid{
+// 	margin: $containerMargin;
+// }
+
+// .container{
+// 	margin: $containerMargin;
+// }
+
