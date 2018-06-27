@@ -219,6 +219,12 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         public bool isBuildingEnlarged;
         public bool isAnchorUpdate;
 
+        public StreamingData()
+        {
+            this.pos = new double[3];
+            this.quat = new double[4];
+        }
+
         public StreamingData(float[] pos, float[] quat, bool click)
         {
             this.pos = new double[3];
