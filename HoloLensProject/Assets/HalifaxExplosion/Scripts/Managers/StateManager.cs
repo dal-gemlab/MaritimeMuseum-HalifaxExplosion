@@ -266,7 +266,8 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         }
 
         int loadedCount = 0;
-        for(int i = 0; i<positions.Count; i++)
+        //TODO Invert this fors
+        for(int i = 0; i<holograms.Length; i++)
         {
             for (int j = 0; j < positions.Count; j++)
             {
@@ -278,6 +279,13 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                     holograms[i].transform.localRotation = positions[j].localRotation;
                     loadedCount++;
                 }
+            }
+        }
+
+        for (int i = 0; i < framesGOs.Length; i++)
+        {
+            for (int j = 0; j < positions.Count; j++)
+            {
                 if (framesGOs[i].name == positions[j].name)
                 {
                     Debug.Log("Current: " + framesGOs[i].name + "From file: " + positions[j].name);
