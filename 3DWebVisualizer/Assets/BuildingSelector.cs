@@ -17,7 +17,8 @@ public class BuildingSelector : MonoBehaviour
     private void MessageReceived(string msg)
     {
         var data = JsonUtility.FromJson<WSManager.StreamingData>(msg);
-        if (!data.isAnchorUpdate && data.click && !data.isBuildingEnlarged)
+        if (data.isAnchorUpdate || !data.click) return;
+        if(!data.isBuildingEnlarged)
         {
             if (previousSelected != null)
                 previousSelected.enabled = false;
@@ -25,6 +26,12 @@ public class BuildingSelector : MonoBehaviour
                 .GetComponent<MeshRenderer>();
             previousSelected.enabled = true;
         }
+        else
+        {
+            previousSelected.enabled = false;
+            previousSelected = null;
+        }
+
     }
 
    

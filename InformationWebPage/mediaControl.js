@@ -29,6 +29,8 @@ var UnityMessages = /** @class */ (function () {
             this.buildingName = json["clickedName"];
             if (!this.isBuildingEnlarged)
                 this.loadDescriptionFile();
+            else
+                this.clearPage();
         }
     }
     UnityMessages.prototype.loadDescriptionFile = function () {
@@ -42,6 +44,11 @@ var UnityMessages = /** @class */ (function () {
         };
         xobj.open('GET', "json/" + this.buildingName + ".json", true);
         xobj.send();
+    };
+    UnityMessages.prototype.clearPage = function () {
+        document.getElementById("titleHeading").innerHTML = "";
+        document.getElementById("descriptionHeading").innerHTML = "";
+        document.getElementById("buildingImage").setAttribute("src", "");
     };
     return UnityMessages;
 }());
