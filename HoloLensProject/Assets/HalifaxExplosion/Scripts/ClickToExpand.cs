@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 using System;
-
-
+using TMPro;
 #if UNITY_EDITOR
 using WebSocketSharp;
 #else
@@ -27,6 +26,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
     private GameObject expansionTarget;
     private Vector3 startPos;
     private BuildingDescription buildingDescription;
+    private TextMeshPro informationTextBoard;
 
     private float animationTime = 1f;
     private Vector3 initialScale;
@@ -48,6 +48,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
 
         expansionTarget = GameObject.Find("ExpansionPoint");
         buildingDescription = this.GetComponent<BuildingDescription>();
+        informationTextBoard = GameObject.FindGameObjectWithTag("InformationTextBoard").GetComponent<TextMeshPro>();
     }
 
     private void Update()
@@ -81,6 +82,7 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
 
             StartCoroutine(ScaleUp(5, animationTime, 0.2f,expansionTarget.transform.position));
             IsEnlarged = !IsEnlarged;
+            informationTextBoard.SetText(buildingDescription.buildingDescription);
 
 
             //var b = new BuildingJS(buildingDescription.modelJSName,
@@ -92,7 +94,8 @@ public class ClickToExpand : MonoBehaviour, IInputClickHandler
         {
             StartCoroutine(ScaleDown(animationTime, 0.2f));
             this.transform.rotation = modelRotation;
-            
+            informationTextBoard.SetText("");
+
             //holoCap = null;
         }
 

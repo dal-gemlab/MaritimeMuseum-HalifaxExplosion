@@ -11,6 +11,7 @@ TagManager:
   - 3D Bulding
   - ShipConglomerate
   - PictureFrame
+  - InformationTextBoard
   layers:
   - Default
   - TransparentFX
