@@ -199,6 +199,13 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 frame.GetComponent<PictureFrame>().StopFade();
             }
         }
+
+        GameObject infoBoard = GameObject.FindGameObjectWithTag("InformationTextBoard");
+        var manipToMove = infoBoard.GetComponent<ManipulateToMove>();
+        if (manipToMove == null)
+        {
+            infoBoard.AddComponent<ManipulateToMove>();
+        }
     }
 
     
@@ -259,7 +266,7 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
         if (positions == null)
             return;
 
-        if(positions.Count != holograms.Length + framesGOs.Length)
+        if(positions.Count != holograms.Length + framesGOs.Length +1 )
         {
             Debug.LogError("Postion file has a different number of buldings. Are you sure it is up to date?");
             return;
@@ -295,6 +302,19 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
                 }
             }
         }
+
+        GameObject infoBoard = GameObject.FindGameObjectWithTag("InformationTextBoard");
+        for (int i = 0; i < positions.Count; i++)
+        {
+            if (infoBoard.name == positions[i].name)
+            {
+                infoBoard.transform.localPosition = positions[i].localPosition;
+                infoBoard.transform.localRotation = positions[i].localRotation;
+                loadedCount++;
+                break;
+            }
+        }
+
         Debug.LogFormat("Loaded {0} positions from file", loadedCount);
 
     }
@@ -315,6 +335,8 @@ public class StateManager : MonoBehaviour, IInputClickHandler {
             transforms.Add(framesGO.transform);
         }
 
+        GameObject infoBoard = GameObject.FindGameObjectWithTag("InformationTextBoard");
+        transforms.Add(infoBoard.transform);
 
         PositionFileHelper.SaveRelativePositions(transforms, positionsFile);
     }
