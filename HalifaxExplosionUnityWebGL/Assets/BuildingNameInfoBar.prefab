@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 23991934445313756}
   - component: {fileID: 102283418347226936}
   - component: {fileID: 120379718324860484}
-  - component: {fileID: 114858462402679944}
+  - component: {fileID: 114437001075214158}
   m_Layer: 0
   m_Name: BuildingNameInfoBar
   m_TagString: Untagged
@@ -184,7 +184,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4293322470
---- !u!114 &114858462402679944
+--- !u!114 &114437001075214158
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1594076405444426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8d5b128a1d8204fb76c86f47b75912, type: 3}
+  m_Script: {fileID: 11500000, guid: fdfbb53926a8d67498d99ddc135a22ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PivotAxis: 1

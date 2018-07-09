@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -15,7 +16,8 @@ public class ClickToExpand : MonoBehaviour
     private Quaternion modelRotation;
     private GameObject expansionTarget;
     private Vector3 startPos;
-   
+    private BuildingDescription buildingDescription;
+    private TextMeshPro informationTextBoard;
 
     private float animationTime = 1f;
     private Vector3 initialScale;
@@ -35,6 +37,8 @@ public class ClickToExpand : MonoBehaviour
         initialScale = transform.localScale;
 
         expansionTarget = GameObject.Find("ExpansionPoint");
+        buildingDescription = this.GetComponent<BuildingDescription>();
+        informationTextBoard = GameObject.FindGameObjectWithTag("InformationTextBoard").GetComponent<TextMeshPro>();
     }
 
     private void Update()
@@ -63,13 +67,15 @@ public class ClickToExpand : MonoBehaviour
             modelRotation = transform.rotation;
 
             StartCoroutine(ScaleUp(5, animationTime, 0.2f,expansionTarget.transform.position));
-            isEnlarged = !isEnlarged;           
+            isEnlarged = !isEnlarged;
+            informationTextBoard.SetText(buildingDescription.buildingDescription);
         }
         else
         {
             StartCoroutine(ScaleDown(animationTime, 0.2f));
             this.transform.rotation = modelRotation;
             isEnlarged = !isEnlarged;
+            informationTextBoard.SetText("");
             //holoCap = null;
         }
 
