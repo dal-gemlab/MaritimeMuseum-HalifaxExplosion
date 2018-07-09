@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using HoloToolkit.Unity.InputModule;
 #if UNITY_EDITOR
 using WebSocketSharp;
 #else
@@ -29,6 +30,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
     private bool isAsyncBusy;
     public bool isConnected;
     bool divider = true;
+    public CameraMaterialCaster materialCaster;
 
     private void Start()
     {
@@ -38,7 +40,6 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         shouldSend = false;
         StartCoroutine(remoteAnchorCoroutine());
         isAsyncBusy = false;
-        
         
     }
 
@@ -59,8 +60,15 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         float[] arrayP = new float[3] { p.x, p.y, p.z };
         float[] arrayQ = new float[4] { q.x, q.y, q.z,q.w };
 
-//        notABuilding.SetPosRot(arrayP, arrayQ);
-        var data = new StreamingData(arrayP, arrayQ, false, "",false);
+        string gazedBuilding = "";
+
+        if (materialCaster.gazeTarget != null && materialCaster.gazeTarget.CompareTag("Hologram"))
+        {
+            gazedBuilding = materialCaster.gazeTarget.name;
+        }
+
+        //        notABuilding.SetPosRot(arrayP, arrayQ);
+        var data = new StreamingData(arrayP, arrayQ, false, "",false, gazedBuilding);
 
         if (shouldSend)
             sendJS(data);
@@ -87,8 +95,14 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         float[] arrayQ = new float[4] { q.x, q.y, q.z, q.w };
 
         var goingToExpand = GameObject.Find(gameObjectName).GetComponent<ClickToExpand>().IsEnlarged;
+        string gazedBuilding = "";
 
-        var data = new StreamingData(arrayP,arrayQ,true,gameObjectName, goingToExpand);
+        if (materialCaster.gazeTarget != null && materialCaster.gazeTarget.CompareTag("Hologram"))
+        {
+            gazedBuilding = materialCaster.gazeTarget.name;
+        }
+
+        var data = new StreamingData(arrayP,arrayQ,true,gameObjectName, goingToExpand, gazedBuilding);
 
         if (shouldSend)
             sendJS(data);
@@ -110,7 +124,10 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         float[] arrayP = new float[3] { p.x, p.y, p.z };
         float[] arrayQ = new float[4] { q.x, q.y, q.z, q.w };
 
-        var data = new StreamingData(arrayP,arrayQ,false);
+        
+
+
+        var data = new StreamingData(arrayP,arrayQ,false,null);
         data.SetAnchorUpdate();
 
         //var notABuildingButAnAnchor = new BuildingJS("anchor", "", "");
@@ -218,6 +235,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
         public string clickedName;
         public bool isBuildingEnlarged;
         public bool isAnchorUpdate;
+        public string gazedBuilding;
 
         public StreamingData()
         {
@@ -225,7 +243,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
             this.quat = new double[4];
         }
 
-        public StreamingData(float[] pos, float[] quat, bool click)
+        public StreamingData(float[] pos, float[] quat, bool click, string gazedBuilding)
         {
             this.pos = new double[3];
             this.quat = new double[4];
@@ -241,9 +259,12 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
             {
                 this.quat[i] = (float)Math.Round(quat[i], 3, MidpointRounding.AwayFromZero);
             }
+
+            this.gazedBuilding = gazedBuilding;
+
         }
 
-        public StreamingData(float[] pos, float[] quat, bool click, string clickedName, bool isBuildingEnlarged) : this(pos, quat, click)
+        public StreamingData(float[] pos, float[] quat, bool click, string clickedName, bool isBuildingEnlarged, string gazedBuilding) : this(pos, quat, click, gazedBuilding)
         {
             this.clickedName = clickedName;
             this.isBuildingEnlarged = isBuildingEnlarged;

@@ -3254,6 +3254,7 @@ MonoBehaviour:
   anchor: {fileID: 353748012}
   shouldSend: 0
   isConnected: 0
+  materialCaster: {fileID: 796889278}
 --- !u!4 &1200918027
 Transform:
   m_ObjectHideFlags: 0

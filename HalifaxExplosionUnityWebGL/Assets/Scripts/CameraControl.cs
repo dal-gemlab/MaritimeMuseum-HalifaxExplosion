@@ -6,6 +6,7 @@ public class CameraControl : MonoBehaviour {
 
     WebSocketManager wsManager;
     Camera cam;
+    private GameObject previousGazedBuilding;
 
     public GameObject anchor;
 
@@ -44,6 +45,33 @@ public class CameraControl : MonoBehaviour {
                         if(expandComponent.isEnlarged == json.isBuildingEnlarged)
                             expandComponent.OnInputClicked();
                     }
+                }
+            }
+            else
+            {
+                var b = GameObject.Find(json.gazedBuilding);
+                if (b == null)
+                {
+                    if (previousGazedBuilding != null)
+                    {
+                        previousGazedBuilding.GetComponent<ShowBuildingName>().OnFocusExit();
+                        previousGazedBuilding = null;
+                    }
+
+                    return;
+                }
+                if(!b.CompareTag("Hologram"))
+                    return;
+
+                if(!b.GetComponent<ShowBuildingName>().WasEnterCalled)
+                    b.GetComponent<ShowBuildingName>().OnFocusEnter();
+
+                if (previousGazedBuilding == null)
+                    previousGazedBuilding = b;
+                else if(!previousGazedBuilding.name.Equals(b.name))
+                {
+                    previousGazedBuilding.GetComponent<ShowBuildingName>().OnFocusExit();
+                    previousGazedBuilding = b;
                 }
             }
 

@@ -44,7 +44,7 @@ class MainHandler(tornado.websocket.WebSocketHandler):
     def on_message(self, message):
         for client in MainHandler.connectedClients:
             client.write_message(message)
-        #logging.info("message: {}".format(message))
+        logging.info("message: {}".format(message))
 
 def main():
     tornado.options.parse_command_line()

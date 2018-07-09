@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -273,6 +273,41 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: acbc514b2de32b048acf651fc92b8cdc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1182411912 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1369965522053206, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &1182411913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182411912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Fuck
+  buildingDescription: Yeah
+--- !u!114 &1182411914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182411912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
 --- !u!1 &1297735027
 GameObject:
   m_ObjectHideFlags: 0

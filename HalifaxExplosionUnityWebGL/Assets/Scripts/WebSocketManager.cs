@@ -47,16 +47,19 @@ public class StreamingData
     public string clickedName;
     public bool isBuildingEnlarged;
     public bool isAnchorUpdate;
+    public string gazedBuilding;
 
-    public StreamingData(float[] pos, float[] quat, bool click)
+    public StreamingData(float[] pos, float[] quat, bool click, string gazedBuilding)
     {
         this.pos = pos;
         this.quat = quat;
         this.click = click;
         isAnchorUpdate = false;
+        this.gazedBuilding = gazedBuilding;
     }
+    
 
-    public StreamingData(float[] pos, float[] quat, bool click, string clickedName, bool isBuildingEnlarged) : this(pos, quat, click)
+    public StreamingData(float[] pos, float[] quat, bool click, string clickedName, bool isBuildingEnlarged, string gazedBuilding) : this(pos, quat, click,gazedBuilding )
     {
         this.clickedName = clickedName;
         this.isBuildingEnlarged = isBuildingEnlarged;
