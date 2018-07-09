@@ -64,6 +64,8 @@ public class CameraControl : MonoBehaviour {
                 }
                 if(!b.CompareTag("Hologram"))
                     return;
+                if(b.GetComponent<ClickToExpand>().ScalingDownInProgress)
+                    return;
 
                 if(!b.GetComponent<ShowBuildingName>().WasEnterCalled)
                     b.GetComponent<ShowBuildingName>().OnFocusEnter();

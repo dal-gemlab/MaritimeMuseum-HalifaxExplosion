@@ -116,6 +116,7 @@ public class ShowBuildingName : MonoBehaviour {
 
     IEnumerator AnimateLine(bool shouldGoDown)
     {
+        
         if (lR.positionCount != 2)
             lR.positionCount = 2;
 

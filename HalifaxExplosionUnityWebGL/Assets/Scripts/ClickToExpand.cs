@@ -25,6 +25,7 @@ public class ClickToExpand : MonoBehaviour
 
     public delegate void buildingClicked(string gameObjectName);
     public event buildingClicked OnBuildingClicked;
+    public bool ScalingDownInProgress = false;
 
     private void Start()
     {
@@ -123,7 +124,7 @@ public class ClickToExpand : MonoBehaviour
         Vector3 endScale = initialScale;
         Vector3 startPosition = transform.position;
         Vector3 endposition = startPos;
-
+        ScalingDownInProgress = true;
         while (elapsedTime < animationTime)
         {
             transform.localScale = Vector3.Lerp(startScale, endScale, elapsedTime / animationTime);
@@ -132,6 +133,7 @@ public class ClickToExpand : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        ScalingDownInProgress = false;
         yield return 0;
     }
 
