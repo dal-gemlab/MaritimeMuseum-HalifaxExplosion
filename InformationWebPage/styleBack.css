@@ -1,0 +1,17 @@
+body{
+	background-color: #303030;
+}
+.container-fluid{
+	background-color: #303030;
+	color: #D6D6D6
+}
+
+.container{
+	background-color: #303030;
+	color: #D6D6D6
+}
+
+.grid-gutter
+{
+	width: 500px;
+}

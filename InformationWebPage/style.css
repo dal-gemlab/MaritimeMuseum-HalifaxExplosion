@@ -1,0 +1,18 @@
+body {
+  color: #D6D6D6;
+  background-color: #303030;
+}
+
+.display-2 {
+  text-align: center;
+}
+
+.img-fluid {
+  margin: 10px;
+}
+
+#gameContainer {
+  background-color: #D6D6D6;
+}
+
+/*# sourceMappingURL=style.css.map */
