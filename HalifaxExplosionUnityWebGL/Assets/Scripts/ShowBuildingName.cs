@@ -61,6 +61,20 @@ public class ShowBuildingName : MonoBehaviour {
         StartCoroutine(AnimateLine(true));
     }
 
+    public void ClearBar()
+    {
+        infoBar.GetComponent<TextMesh>().text = "";
+        clickMeText.text = "";
+        List<Vector3> positions = new List<Vector3>
+        {
+        };
+
+        lR.positionCount = 0;
+        lR.SetPositions(positions.ToArray());
+        isAnimationOnQueue = false;
+        animationSingleQueue = false;
+    }
+
     // Use this for initialization
     void Start () {
 

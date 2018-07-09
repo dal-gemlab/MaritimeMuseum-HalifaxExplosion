@@ -118,6 +118,114 @@ GameObject:
   m_PrefabParentObject: {fileID: 1464316670400854, guid: acbc514b2de32b048acf651fc92b8cdc,
     type: 2}
   m_PrefabInternal: {fileID: 1182411911}
+--- !u!1 &232358761 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1949482994370140, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &232358763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232358761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &232358765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232358761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
+--- !u!1 &305463770 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1673830958195438, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &305463772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 305463770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &305463774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 305463770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
+--- !u!1 &368916251 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1064852007141642, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &368916253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 368916251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &368916255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 368916251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
 --- !u!1 &488885012
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +335,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &888343839 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1607062983303734, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &888343841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 888343839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &888343843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 888343839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
+--- !u!1 &1082230285 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1340616154485854, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &1082230287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082230285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &1082230289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082230285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
 --- !u!1001 &1182411911
 Prefab:
   m_ObjectHideFlags: 0
@@ -270,6 +450,56 @@ Prefab:
       propertyPath: m_Name
       value: Anchor
       objectReference: {fileID: 0}
+    - target: {fileID: 64554209566396090, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: ae282ff8bf885a64c8f1286ca5b2a18e, type: 3}
+    - target: {fileID: 64481599967272352, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: dbc9d6e6cd6c0884a967c104a0a44dd2, type: 3}
+    - target: {fileID: 64266988229865366, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: a55f649979ae424478d033b71942d549, type: 3}
+    - target: {fileID: 64682517286485938, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: e471417b1a3efae479931b1ebc5cab0f, type: 3}
+    - target: {fileID: 64351398398435384, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 107143af09c4eac4d86545cc5af98446, type: 3}
+    - target: {fileID: 64092831846062234, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300018, guid: e471417b1a3efae479931b1ebc5cab0f, type: 3}
+    - target: {fileID: 64678140516133188, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300014, guid: e471417b1a3efae479931b1ebc5cab0f, type: 3}
+    - target: {fileID: 64954986865428788, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300010, guid: e471417b1a3efae479931b1ebc5cab0f, type: 3}
+    - target: {fileID: 64593817589746432, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300008, guid: e471417b1a3efae479931b1ebc5cab0f, type: 3}
+    - target: {fileID: 64156572828592132, guid: acbc514b2de32b048acf651fc92b8cdc,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300006, guid: e471417b1a3efae479931b1ebc5cab0f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: acbc514b2de32b048acf651fc92b8cdc, type: 2}
   m_IsPrefabParent: 0
@@ -308,6 +538,7 @@ MonoBehaviour:
   textHeightInMeters: 0.15
   hoverTipTimer: 2
   hoverFocusTtext: 
+  WasEnterCalled: 0
 --- !u!1 &1297735027
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,9 +675,189 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchor: {fileID: 173606408}
+--- !u!1 &1338170603 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1220614936535538, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &1338170605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1338170603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &1338170607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1338170603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
+--- !u!1 &1504926882 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1855869156514114, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &1504926884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504926882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &1504926886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504926882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
+--- !u!1 &1837340992 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1469732163196516, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &1837340994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837340992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &1837340996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837340992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
+--- !u!1 &1837468648 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1385170705763808, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &1837468650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837468648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &1837468652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1837468648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
 --- !u!114 &1859135617 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114023260998178474, guid: acbc514b2de32b048acf651fc92b8cdc,
     type: 2}
   m_PrefabInternal: {fileID: 1182411911}
   m_Script: {fileID: 11500000, guid: a4fae1924baefb842ab19b9cbac7f63b, type: 3}
+--- !u!1 &2121834114 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1556573848182040, guid: acbc514b2de32b048acf651fc92b8cdc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182411911}
+--- !u!114 &2121834116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2121834114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddf735f0d059b443ba996378ac0125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelJSName: 
+  buildingName: Rememver to fix me
+  buildingDescription: Remeber to fix me
+--- !u!114 &2121834118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2121834114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17afd28bde24b994a8f5b90301a8b2b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameBarPrefab: {fileID: 1594076405444426, guid: aed28235d150eea4ba56161118d9b8f8,
+    type: 2}
+  textHeightInMeters: 0.15
+  hoverTipTimer: 2
+  hoverFocusTtext: 
+  WasEnterCalled: 0
