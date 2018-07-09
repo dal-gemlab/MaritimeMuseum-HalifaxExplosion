@@ -484,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!1 &239410907
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!1 &350241497
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!1 &391663017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!1 &913647577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,7 +1507,7 @@ GameObject:
   - component: {fileID: 913647579}
   m_Layer: 0
   m_Name: TextBoard
-  m_TagString: Untagged
+  m_TagString: InformationTextBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1931,6 +1935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!1 &1087285533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,6 +2078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!64 &1182411917
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2473,6 +2479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!1 &1354336614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!1 &1511644667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3431,6 +3439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!1 &1837468648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,6 +3536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
 --- !u!114 &1859135617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4010,3 +4020,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnlarged: 0
   finalScale: {x: 0, y: 0, z: 0}
+  ScalingDownInProgress: 0
