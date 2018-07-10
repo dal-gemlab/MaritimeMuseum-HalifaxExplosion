@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -436,8 +436,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: Cotton Mill
+  buildingDescription: "Dominion Textiles Cotton Mill once stood at the corner of
+    Young and Robie, and at the time of the explosion took up the entire block. It
+    produced plain cotton with a workforce of 600, half of them women, some under
+    the age of 16. Many workers lost their lives here when the building collapsed.
+    \n\nThe freestanding walls and chimney were incorporated into a Building Supply
+    depot for the reconstruction. This became known as Piercy's Lumber and Building
+    Supply, which was a local landmark. It has since been taken over by Rona, who
+    subsequently demolished the original building and tower. \n\nToday, industry,
+    housing and commerce continue to co-exist in the North End of Halifax."
 --- !u!64 &232358764
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -639,8 +647,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: Memorial Bell Tower
+  buildingDescription: "The Halifax Explosion Memorial Bell Tower sits atop a hill
+    in Fort Needham Park, facing Ground Zero of the explosion. The monument was designed
+    by the Core Design Group, who were awarded the project in a December 1983 competition
+    among local architects. Designer Keith Graham used circle, triangle and ivy motifs
+    in the design; he stated that the finished monument was meant to convey a feeling
+    for the past, with hope for the future. \n\nThe Halifax Explosion memorial bells
+    were installed in 1985, relocating carillon bells from a nearby church to the
+    large concrete sculpture. \n\nThis is the location of an annual civic memorial
+    ceremony held every December 6, and a new plaza surrounding the tower was finished
+    for the 2017 centenary"
 --- !u!64 &305463773
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -811,8 +828,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: XYZ Marker
+  buildingDescription: "The XZY marker is a \u2018counter-monument\u2019 made by Dalhousie
+    University School of Architecture students as part of Design and Build Freelab
+    course during the summer of 2014. The sculptural design references the use of
+    X, Y and Z coordinates in 3D computer-aided design (CAD) software, and also hearkens
+    back to the house foundations and chimneys left on the Richmond slope after the
+    explosion. \n\nDuring the explosion, many people lost their eyesight, and in recognition
+    of this, the XYZ marker lists the names of the known dead in Braille. After the
+    explosion, the Canadian National Institute for the Blind established strong roots
+    here."
 --- !u!64 &368916254
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1444,8 +1469,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: Veith House
+  buildingDescription: "Veith House started life as the Halifax Protestant Orphanage,
+    built as part of the Halifax Relief Commission's reconstruction efforts. It replaced
+    the former Orphan's home destroyed in the explosion. It operated until 1969 when
+    the Orphanage closed. \n\nReopened in 1974, Veith House is now a community centre
+    dedicated to the well-being of families affected by poverty."
 --- !u!64 &888343842
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1549,13 +1578,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "The Tufts Cove Generating Station provides the Halifax Regional Municipality
-    with electrical power.\r\n\r\nA thermal generating station, Tufts Cove was constructed
-    in 1965 by the Nova Scotia Light and Power Company Limited. Part of a historic
-    neighbourhood was demolished to locate the facility on the eastern shore of the
-    Halifax Harbour. Now operated by Nova Scotia Power, many recent upgrades have
-    dramatically improved its environmental performance. The plant features three
-    distinctive red-striped 500 ft chimneys, a landmark on the Halifax harbour."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -1623,13 +1646,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: -1.3981566, z: -2.4206557, w: -1.0302428}
   m_textInfo:
     textComponent: {fileID: 913647579}
-    characterCount: 550
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 81
-    wordCount: 81
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 12
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
@@ -1887,8 +1910,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: Graving Dock
+  buildingDescription: "\u2018Graving dock\u2019 is another phrase for \u2018dry dock\u2019;
+    to \u2018grave\u2019 something is to lay it down. \n\nThe graving dock survived
+    the explosion, with very little damage. This photograph is from the Nova Scotia
+    Archives, Notman Studio collection, and shows the graving dock just after the
+    explosion. \n\nThe graving dock is a National Engineers\u2019 Historic Site, however
+    no photos can be taken at this site since it is still in use."
 --- !u!64 &1082230288
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2029,8 +2057,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Fuck
-  buildingDescription: Yeah
+  buildingName: Nova Scotia Power Plant
+  buildingDescription: "The Tufts Cove Generating Station provides the Halifax Regional
+    Municipality with electrical power. \n\nA thermal generating station, Tufts Cove
+    was constructed in 1965 by the Nova Scotia Light and Power Company Limited. Part
+    of a historic neighbourhood was demolished to locate the facility on the eastern
+    shore of Halifax Harbour. Now operated by Nova Scotia Power, many recent upgrades
+    have dramatically improved its environmental performance. The plant features three
+    distinctive red-striped 150m (500 ft) chimneys, a landmark on the Halifax harbour."
 --- !u!114 &1182411914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,8 +2465,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: Richmond School
+  buildingDescription: "Just months prior to the explosion, a new section of the school
+    on Roome Street had been opened to accommodate a growing student population. Although
+    much of the building was destroyed during the explosion, most students weren\u2019t
+    yet at school, since class only started at full light in the winter.\n\nDebris
+    from the explosion was often reused during the reconstruction. Some of the stone
+    work in local gardens was recovered from the foundation of the former Roome Street
+    School. Architect Andrew R. Cobb designed the new Richmond School, completed in
+    1919, using some of the recovered bricks from the original school. The building
+    now houses the Nova Scotia Supreme Court, Family Division."
 --- !u!64 &1338170606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2694,8 +2736,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: Mulgrave Park
+  buildingDescription: "The Mulgrave Park housing development was built as part of
+    Halifax\u2019s 'urban renewal' in the early 1960s. Mulgrave Park is the largest
+    residential development close to Ground Zero. 'The slope of the site would require
+    terracing and retaining walls, which were used to define parking and play areas.
+    After its completion in October 1960, the Mulgrave Park project won numerous awards
+    for its quality.\u2019 (Peter Ziebrowski, builtHalifax.ca). \n\nMulgrave Park
+    is home to many Haligonians. Adults, youth and children from this busy neighbourhood
+    participate in activities organized by community organizations such as the Mulgrave
+    Park Caring & Learning Centre, the Phoenix Youth program, Progress in the Park,
+    and 4Cs community art projects."
 --- !u!64 &1504926885
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3391,8 +3442,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: French Cable Wharf
+  buildingDescription: "Halifax was the Atlantic seaboard's primary cable ship port
+    and service call depot for the transatlantic cable industry. The French Cable
+    Wharf building is at the bottom of Grove Street, on the Dartmouth side of the
+    harbour. It was built in 1916 and used by the Compagnie Fran\xE7aise Des C\xE2bles
+    T\xE9l\xE9graphiques as a base for installing and maintaining transatlantic communications
+    cable. \n\nMade of reinforced concrete, the building was the only major structure
+    on the Dartmouth shore to survive the explosion. There was a wharf extending from
+    the building into the harbour at that time, later used by the Canadian Navy. A
+    major environmental remediation of the site was performed in 2004. The French
+    Cable Wharf building is a recognized Federal Heritage Building, and is now part
+    of the Defence Research and Development Canada facility at this location."
 --- !u!64 &1837340995
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3488,8 +3549,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: Acadia Sugar Refinery
+  buildingDescription: "The Richmond refinery was a ten-storey brick building that
+    had a production capacity of 1800 barrels of refined sugar per day. It also had
+    other facilities such as a cooperage, raw sugar shed, refined sugar shed, machine
+    shop, and stables. 700 men were employed there. The refinery had waterfront and
+    rail connections. It was a major landmark on the Halifax waterfront, at the time
+    it was the largest building east of Montreal. \n\nThe Acadia Sugar Refinery was
+    completely destroyed within minutes of the explosion, with great loss of life."
 --- !u!64 &1837468651
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3972,8 +4039,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelJSName: 
-  buildingName: Rememver to fix me
-  buildingDescription: Remeber to fix me
+  buildingName: Halifax Shipyard
+  buildingDescription: "In the decades since the explosion, the graving dock and shipyard
+    businesses grew, and now they are both owned by Irving Shipbuilding Inc. Canada\u2019s
+    east coast Navy procurement program is centred here, and Arctic patrol vessels
+    are being currently being assembled. They will play an important role in the Canadian
+    Arctic, as climate change frees up the waterways, and resources, that are now
+    locked in ice. \n\nGround Zero, where the SS Mont-Blanc exploded, is next to where
+    Pier 6 stood at the foot of Richmond Street. This location is now within the Halifax
+    Shipyard, although the exact location remains unmarked."
 --- !u!64 &2121834117
 MeshCollider:
   m_ObjectHideFlags: 0

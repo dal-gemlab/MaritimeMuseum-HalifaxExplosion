@@ -3672,6 +3672,224 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114648020814762952, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingName
+      value: Cotton Mill
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648020814762952, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: modelJSName
+      value: Cotton Mill
+      objectReference: {fileID: 0}
+    - target: {fileID: 114648020814762952, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "Dominion Textiles Cotton Mill once stood at the corner of Young and
+        Robie, and at the time of the explosion took up the entire block. It produced
+        plain cotton with a workforce of 600, half of them women, some under the age
+        of 16. Many workers lost their lives here when the building collapsed. \n\nThe
+        freestanding walls and chimney were incorporated into a Building Supply depot
+        for the reconstruction. This became known as Piercy's Lumber and Building
+        Supply, which was a local landmark. It has since been taken over by Rona,
+        who subsequently demolished the original building and tower. \n\nToday, industry,
+        housing and commerce continue to co-exist in the North End of Halifax."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458341488731128, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: modelJSName
+      value: Richmond School
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458341488731128, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "Just months prior to the explosion, a new section of the school on Roome
+        Street had been opened to accommodate a growing student population. Although
+        much of the building was destroyed during the explosion, most students weren\u2019t
+        yet at school, since class only started at full light in the winter.\n\nDebris
+        from the explosion was often reused during the reconstruction. Some of the
+        stone work in local gardens was recovered from the foundation of the former
+        Roome Street School. Architect Andrew R. Cobb designed the new Richmond School,
+        completed in 1919, using some of the recovered bricks from the original school.
+        The building now houses the Nova Scotia Supreme Court, Family Division."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699900630944952, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingName
+      value: Acadia Sugar Refinery
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699900630944952, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "The Richmond refinery was a ten-storey brick building that had a production
+        capacity of 1800 barrels of refined sugar per day. It also had other facilities
+        such as a cooperage, raw sugar shed, refined sugar shed, machine shop, and
+        stables. 700 men were employed there. The refinery had waterfront and rail
+        connections. It was a major landmark on the Halifax waterfront, at the time
+        it was the largest building east of Montreal. \n\nThe Acadia Sugar Refinery
+        was completely destroyed within minutes of the explosion, with great loss
+        of life."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114604023928397278, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: modelJSName
+      value: XYZ Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 114604023928397278, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingName
+      value: XYZ Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 114604023928397278, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "The XZY marker is a \u2018counter-monument\u2019 made by Dalhousie University
+        School of Architecture students as part of Design and Build Freelab course
+        during the summer of 2014. The sculptural design references the use of X,
+        Y and Z coordinates in 3D computer-aided design (CAD) software, and also hearkens
+        back to the house foundations and chimneys left on the Richmond slope after
+        the explosion. \n\nDuring the explosion, many people lost their eyesight,
+        and in recognition of this, the XYZ marker lists the names of the known dead
+        in Braille. After the explosion, the Canadian National Institute for the Blind
+        established strong roots here."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114226592634801384, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: modelJSName
+      value: French Cable Wharf
+      objectReference: {fileID: 0}
+    - target: {fileID: 114226592634801384, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "Halifax was the Atlantic seaboard's primary cable ship port and service
+        call depot for the transatlantic cable industry. The French Cable Wharf building
+        is at the bottom of Grove Street, on the Dartmouth side of the harbour. It
+        was built in 1916 and used by the Compagnie Fran\xE7aise Des C\xE2bles T\xE9l\xE9graphiques
+        as a base for installing and maintaining transatlantic communications cable.
+        \n\nMade of reinforced concrete, the building was the only major structure
+        on the Dartmouth shore to survive the explosion. There was a wharf extending
+        from the building into the harbour at that time, later used by the Canadian
+        Navy. A major environmental remediation of the site was performed in 2004.
+        The French Cable Wharf building is a recognized Federal Heritage Building,
+        and is now part of the Defence Research and Development Canada facility at
+        this location."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967802926396972, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "\u2018Graving dock\u2019 is another phrase for \u2018dry dock\u2019;
+        to \u2018grave\u2019 something is to lay it down. \n\nThe graving dock survived
+        the explosion, with very little damage. This photograph is from the Nova Scotia
+        Archives, Notman Studio collection, and shows the graving dock just after
+        the explosion. \n\nThe graving dock is a National Engineers\u2019 Historic
+        Site, however no photos can be taken at this site since it is still in use."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114852348037191408, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingName
+      value: Memorial Bell Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 114852348037191408, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "The Halifax Explosion Memorial Bell Tower sits atop a hill in Fort Needham
+        Park, facing Ground Zero of the explosion. The monument was designed by the
+        Core Design Group, who were awarded the project in a December 1983 competition
+        among local architects. Designer Keith Graham used circle, triangle and ivy
+        motifs in the design; he stated that the finished monument was meant to convey
+        a feeling for the past, with hope for the future. \n\nThe Halifax Explosion
+        memorial bells were installed in 1985, relocating carillon bells from a nearby
+        church to the large concrete sculpture. \n\nThis is the location of an annual
+        civic memorial ceremony held every December 6, and a new plaza surrounding
+        the tower was finished for the 2017 centenary"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114045845413693772, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingName
+      value: Nova Scotia Power Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 114045845413693772, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "The Tufts Cove Generating Station provides the Halifax Regional Municipality
+        with electrical power. \n\nA thermal generating station, Tufts Cove was constructed
+        in 1965 by the Nova Scotia Light and Power Company Limited. Part of a historic
+        neighbourhood was demolished to locate the facility on the eastern shore of
+        Halifax Harbour. Now operated by Nova Scotia Power, many recent upgrades have
+        dramatically improved its environmental performance. The plant features three
+        distinctive red-striped 150m (500 ft) chimneys, a landmark on the Halifax
+        harbour."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114144837465057150, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "Veith House started life as the Halifax Protestant Orphanage, built
+        as part of the Halifax Relief Commission's reconstruction efforts. It replaced
+        the former Orphan's home destroyed in the explosion. It operated until 1969
+        when the Orphanage closed. \n\nReopened in 1974, Veith House is now a community
+        centre dedicated to the well-being of families affected by poverty."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114429831971716624, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "The Mulgrave Park housing development was built as part of Halifax\u2019s
+        'urban renewal' in the early 1960s. Mulgrave Park is the largest residential
+        development close to Ground Zero. 'The slope of the site would require terracing
+        and retaining walls, which were used to define parking and play areas. After
+        its completion in October 1960, the Mulgrave Park project won numerous awards
+        for its quality.\u2019 (Peter Ziebrowski, builtHalifax.ca). \n\nMulgrave Park
+        is home to many Haligonians. Adults, youth and children from this busy neighbourhood
+        participate in activities organized by community organizations such as the
+        Mulgrave Park Caring & Learning Centre, the Phoenix Youth program, Progress
+        in the Park, and 4Cs community art projects."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114831153107024876, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingDescription
+      value: "In the decades since the explosion, the graving dock and shipyard businesses
+        grew, and now they are both owned by Irving Shipbuilding Inc. Canada\u2019s
+        east coast Navy procurement program is centred here, and Arctic patrol vessels
+        are being currently being assembled. They will play an important role in the
+        Canadian Arctic, as climate change frees up the waterways, and resources,
+        that are now locked in ice. \n\nGround Zero, where the SS Mont-Blanc exploded,
+        is next to where Pier 6 stood at the foot of Richmond Street. This location
+        is now within the Halifax Shipyard, although the exact location remains unmarked."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114831153107024876, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: buildingName
+      value: Halifax Shipyard
+      objectReference: {fileID: 0}
+    - target: {fileID: 114784472137802110, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114784472137802110, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114784472137802110, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114784472137802110, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114784472137802110, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114784472137802110, guid: 29c8fd0e9c4390e41839bd5ec459d9d1,
+        type: 2}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29c8fd0e9c4390e41839bd5ec459d9d1, type: 2}
   m_IsPrefabParent: 0
