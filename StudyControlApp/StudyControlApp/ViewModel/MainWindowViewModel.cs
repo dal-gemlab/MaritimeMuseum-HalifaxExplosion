@@ -17,7 +17,7 @@ namespace StudyControlApp.ViewModel
         #region Properties
         public bool NotRunning { get; private set; }
         public bool NotLogging { get; private set; }
-        public string HoloLensAddr { get; set; } = "192.168.2.150";
+        public string HoloLensAddr { get; set; } = "192.168.1.50";
         public string ParticipantID { get; set; } = "-1";
         public string Condition { get; set; } = "-1";
         public FixedSizeObservablelist<string> OscMessages { get; }
