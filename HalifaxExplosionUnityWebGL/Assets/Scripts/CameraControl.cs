@@ -39,7 +39,7 @@ public class CameraControl : MonoBehaviour {
                 var b = GameObject.Find(json.clickedName);
                 if (b != null)
                 {
-                    previousGazedBuilding.GetComponent<ShowBuildingName>().ClearBar();
+                    previousGazedBuilding?.GetComponent<ShowBuildingName>().ClearBar();
                     previousGazedBuilding = null;
                     var expandComponent = b.GetComponent<ClickToExpand>();
                     if (expandComponent != null)
