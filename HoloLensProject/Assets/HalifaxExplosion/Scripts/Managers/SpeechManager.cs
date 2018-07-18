@@ -26,7 +26,7 @@ public class SpeechManager : MonoBehaviour {
             return;
         if(WorldAnchorManager.Instance.AnchorStore != null)
             WorldAnchorManager.Instance.AnchorStore.Clear();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 
     public void PrintTransforms()
