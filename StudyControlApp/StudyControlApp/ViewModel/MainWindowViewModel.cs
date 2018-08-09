@@ -22,6 +22,8 @@ namespace StudyControlApp.ViewModel
         public string Condition { get; set; } = "-1";
         public FixedSizeObservablelist<string> OscMessages { get; }
 
+        public StudyConditions CurrentCondition { get; set; }
+
         public Brush BackgroundColor { get; private set; }
 
         #endregion
@@ -46,6 +48,13 @@ namespace StudyControlApp.ViewModel
         }
 
         #endregion
+
+        public enum StudyConditions
+        {
+            A,
+            B,
+            C
+        };
 
         private OscController oscController;
         private DataLogger dataLogger;
@@ -91,7 +100,7 @@ namespace StudyControlApp.ViewModel
                     return;
                 BackgroundColor = Brushes.OrangeRed;
                 OnPropertyChanged(nameof(BackgroundColor));
-                dataLogger = new DataLogger(ParticipantID+"-"+Condition);
+                dataLogger = new DataLogger(ParticipantID+"-"+CurrentCondition);
                 NotLogging = false;
                 OnPropertyChanged(nameof(NotLogging));
             }
