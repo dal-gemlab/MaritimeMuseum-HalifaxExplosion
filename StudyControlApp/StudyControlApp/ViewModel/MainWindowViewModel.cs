@@ -100,6 +100,8 @@ namespace StudyControlApp.ViewModel
                 if (dataLogger == null)
                     return;
 
+                oscController.SendCommand((string)command);
+
                 dataLogger.SaveData();
                 dataLogger = null;
                 BackgroundColor = Brushes.WhiteSmoke;
