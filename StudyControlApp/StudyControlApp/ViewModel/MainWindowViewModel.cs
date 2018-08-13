@@ -94,7 +94,7 @@ namespace StudyControlApp.ViewModel
         private void StopServer()
         {
             NotRunning = true;
-            oscController.StopReceiving();
+            oscController?.StopReceiving();
             OnPropertyChanged(nameof(NotRunning));
         }
 

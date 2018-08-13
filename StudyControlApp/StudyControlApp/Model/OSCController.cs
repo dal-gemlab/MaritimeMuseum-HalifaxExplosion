@@ -43,7 +43,16 @@ namespace StudyControlApp.Model
 
         public void StartReceiving()
         {
-            receiver.Connect();
+            try
+            {
+                receiver.Connect();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
             receiverThread.Start();
             //Task.Factory.StartNew(ListenLoop);
         }
@@ -85,7 +94,7 @@ namespace StudyControlApp.Model
 
                     throw;
                 }
-                if(receiver.State == OscSocketState.Closed)
+                if (receiver.State == OscSocketState.Closed)
                 {
                     //TODO: Please fix me....
                     ;//VERY nasty hack to quick fix closing the sockect on application shutdown
