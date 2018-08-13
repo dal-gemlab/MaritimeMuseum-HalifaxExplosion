@@ -47,6 +47,13 @@ namespace StudyControlApp.ViewModel
             get { return controlCommand ?? (controlCommand = new RelayCommand(command => SendToHL(command))); }
         }
 
+        private ICommand closeCommand;
+
+        public ICommand CloseCommand
+        {
+            get { return closeCommand ?? (closeCommand = new RelayCommand(command => ShutdownApplication())); }
+        }
+
         #endregion
 
         public enum StudyConditions
@@ -87,6 +94,7 @@ namespace StudyControlApp.ViewModel
         private void StopServer()
         {
             NotRunning = true;
+            oscController.StopReceiving();
             OnPropertyChanged(nameof(NotRunning));
         }
 
@@ -118,6 +126,11 @@ namespace StudyControlApp.ViewModel
                 NotLogging = true;
                 OnPropertyChanged(nameof(NotLogging));
             }
+        }
+
+        public void ShutdownApplication()
+        {
+            StopServer();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

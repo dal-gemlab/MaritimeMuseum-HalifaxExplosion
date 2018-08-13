@@ -38,6 +38,7 @@ namespace StudyControlApp.Model
             receiver = new OscReceiver(ReceiverPort);
             receiverThread = new Thread(ListenLoop);
             ReceiverSemaphore = new Semaphore(1,1);
+
         }
 
         public void StartReceiving()
@@ -45,8 +46,12 @@ namespace StudyControlApp.Model
             receiver.Connect();
             receiverThread.Start();
             //Task.Factory.StartNew(ListenLoop);
+        }
 
-
+        public void StopReceiving()
+        {
+            receiver.Close();
+            receiverThread.Join();
         }
 
         public void SendCommand(string command)
@@ -56,7 +61,7 @@ namespace StudyControlApp.Model
 
         private void ListenLoop()
         {
-            
+
             try
             {
                 while (receiver.State != OscSocketState.Closed)
@@ -65,8 +70,8 @@ namespace StudyControlApp.Model
                     {
                         //ReceiverSemaphore.WaitOne();
                         data = receiver.Receive();
-                        if (((OscMessage)data).Address == ReceiverPath)
-                          OnDataReceived?.Invoke(data);
+                        if (((OscMessage) data).Address == ReceiverPath)
+                            OnDataReceived?.Invoke(data);
                         //ReceiverSemaphore.Release();
                     }
                 }
@@ -77,7 +82,14 @@ namespace StudyControlApp.Model
                 {
                     Console.WriteLine("Exception in listen loop");
                     Console.WriteLine(ex.Message);
-                    
+
+                    throw;
+                }
+                if(receiver.State == OscSocketState.Closed)
+                {
+                    //TODO: Please fix me....
+                    ;//VERY nasty hack to quick fix closing the sockect on application shutdown
+
                 }
                 else
                 {
@@ -86,7 +98,6 @@ namespace StudyControlApp.Model
                 
             }
         }
-
 
     }
 }
