@@ -146,7 +146,7 @@ public class StreamCameraWS : MIMIR.Util.Singleton<StreamCameraWS> {
 
     private void connectToWS()
     {
-        ws = new WebSocket("ws://localhost:8888/ws");
+        ws = new WebSocket("ws://192.168.1.6:8888/ws");
         ws.OnOpen += ConnectedEvent;
         ws.Connect();
     }

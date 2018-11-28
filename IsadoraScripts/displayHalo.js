@@ -11,58 +11,58 @@ function main()
 	{
 		case "G_01_Cotton_Mill1":
 			xPos = -50;
-			yPos = -4.3;
-			scale = 50;
+			yPos = 0;
+			scale = 25.3;
 			break;
 		case "G_02_Richmond_School1":
-			xPos = -13.7;
+			xPos = -13.8;
 			yPos = 18.4;
-			scale = 40.7;
+			scale = 14.4;
 			break;
 		case "G_03_Sugar_Refinery1":
-			xPos = -28.1;
-			yPos = -37.8;
-			scale = 40.7;
+			xPos = -26.8;
+			yPos = -34.1;
+			scale = 17.9;
 			break;
 		case "G_04_XYZ1":
-			xPos = -20.7;
-			yPos = 23.6;
-			scale = 27.8;
+			xPos = -22.9;
+			yPos = 32.4
+			scale = 10;
 			break;
 		case "G_07_French_Cable_Wharf1":
-			xPos = 13.1;
-			yPos = -24.5;
-			scale = 35.3;
+			xPos = 12.2;
+			yPos = -25.3;
+			scale = 14;
 			break;
 		case "09 Halifax Graving Dock new maya":
-			xPos = -28.9;
-			yPos = -45.9;
-			scale = 52.4;
+			xPos = -27.7;
+			yPos = -45.8;
+			scale = 27.9;
 			break;
 		case "Group1":
-			xPos = -30;
-			yPos = 4.1;
-			scale = 32.6;
+			xPos = -30.2;
+			yPos = 4.3;
+			scale = 11.2;
 			break;
 		case "power plant":
-			xPos = -18.1;
-			yPos = -23.6;
-			scale = 61.1;
+			xPos = -18.3;
+			yPos = -23.1;
+			scale = 22.2;
 			break;
 		case "veith house":
-			xPos = -35.3;
-			yPos = -30.8;
-			scale = 33.2;
+			xPos = -37.6;
+			yPos = -23.6;
+			scale = 10;
 			break;
 		case "06 Irving Shipyard and Assembly Hall with images":
-			xPos = -20.7;
-			yPos = -17.4;
-			scale = 78.6;
+			xPos = -19.4;
+			yPos = -16.9;
+			scale = 34.8;
 			break;
 		case "mulgrave park":
-			xPos = -16.4;
+			xPos = -16.5;
 			yPos = 3.5;
-			scale = 80.3;
+			scale = 36.8;
 			break;
 		default:
 			bypass = true;
