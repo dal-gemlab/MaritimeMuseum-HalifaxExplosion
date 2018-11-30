@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1287744966819796}
+  m_IsPrefabParent: 1
+--- !u!1 &1287744966819796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4521835228006288}
+  - component: {fileID: 114478589003338154}
+  m_Layer: 0
+  m_Name: LaserPlacer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4521835228006288
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287744966819796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.5185943, y: 0.2831062, z: 3.0509183}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114478589003338154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287744966819796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd29c81dcac8074dbce9374c9a90633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VeithList:
+  - 06:27:31.784,0.1965076,0.874877,3.799597,-0.1524938,0.8551902,-0.3010753,-0.3933815,veith
+    house,False,0
+  - 06:27:36.106,0.1611695,0.8639194,3.77787,-0.1617402,0.8496402,-0.3126169,-0.3927116,veith
+    house,False,0
+  - 06:27:36.407,0.1589938,0.86357,3.776445,-0.1624261,0.8492262,-0.312848,-0.3931398,veith
+    house,False,0
+  VeithColor: {r: 1, g: 0, b: 0, a: 0}
+  PowerPlantList:
+  - 06:23:13.741,-1.254194,0.8971951,5.744926,0.02140284,0.9632357,-0.2273791,0.1414837,power
+    plant,False,0
+  - 06:23:10.976,-1.946245,0.9059856,5.461722,0.07284585,0.9062209,-0.1958337,0.3675683,power
+    plant,False,0
+  - 06:23:16.499,-1.207913,0.9095104,5.78668,0.02186653,0.9675482,-0.2239198,0.115032,power
+    plant,False,0
+  - 06:23:16.187,-1.216752,0.9081209,5.783629,0.02210027,0.9675431,-0.2239148,0.1150405,power
+    plant,False,0
+  PowerPlantColor: {r: 0, g: 1, b: 0, a: 0}
+  BellList:
+  - 06:24:56.040,-0.08109039,0.9138287,4.434989,-0.04296066,0.9441728,-0.1873757,-0.267549,Group1,False,0
+  - 06:24:58.205,-0.09287447,0.9072514,4.411097,-0.04158792,0.9425874,-0.1968645,-0.2665407,Group1,False,0
+  - 06:25:00.652,-0.1179189,0.906199,4.385785,-0.04341858,0.9470761,-0.1905482,-0.2546629,No
+    Target,false,0 06:25:00.959,-0.1162379,0.903031,4.380976,-0.04392344,0.9415653,-0.1973701,-0.2693893,Group1,Fal
+  - 06:25:02.175,-0.1055786,0.9027413,4.373142,-0.04541384,0.9406899,-0.1958637,-0.273272,Group1,False,0
+  BellColor: {r: 0, g: 0, b: 1, a: 0}
+  CameraLaser: {fileID: 1944047214614736, guid: 6167dd4ea16accc4383ad23a5cf31c6b,
+    type: 2}
