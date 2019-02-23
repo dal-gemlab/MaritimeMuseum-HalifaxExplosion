@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FileHelpers;
 
+
 namespace LogDataAnalysis
 {
     class Program
@@ -78,8 +79,9 @@ namespace LogDataAnalysis
             }
 
             var condition = filename.Split('-')[1];
-            var expandedOutEntry = new ExpandedOut(staringAtExpanded,textBoardTime,condition);
-            var smallOutEntry = new SmallOut(staringAtSmall,condition);
+            var pid = filename.Split('-')[0];
+            var expandedOutEntry = new ExpandedOut(staringAtExpanded,textBoardTime,condition,pid);
+            var smallOutEntry = new SmallOut(staringAtSmall,condition, pid);
             expandedOuts.Add(expandedOutEntry);
             smallOuts.Add(smallOutEntry);
             

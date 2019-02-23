@@ -10,6 +10,7 @@ namespace LogDataAnalysis
     [DelimitedRecord(",")]
     class SmallOut
     {
+        public string Pid;
         public string Condition;
         public double CottonMill;
         public double RichmondSchool;
@@ -30,7 +31,7 @@ namespace LogDataAnalysis
 
         }
 
-        public SmallOut(Dictionary<string, TimeSpan> data, string condition, double totalTrialTime)
+        public SmallOut(Dictionary<string, TimeSpan> data, string condition)//, double totalTrialTime)
         {
             Condition = condition;
             TotalViewingTime = 0;
@@ -61,7 +62,12 @@ namespace LogDataAnalysis
                     MulgravePark = keyValuePair.Value.TotalSeconds;
             }
 
-            TotalTrialTime = totalTrialTime;
+            //TotalTrialTime = totalTrialTime;
+        }
+
+        public SmallOut(Dictionary<string, TimeSpan> data, string condition, string pid) : this(data, condition)
+        {
+            this.Pid = pid;
         }
     }
 }

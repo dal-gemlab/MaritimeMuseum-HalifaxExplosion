@@ -10,6 +10,7 @@ namespace LogDataAnalysis
     [DelimitedRecord(",")]
     class ExpandedOut
     {
+        public string Pid;
         public string Condition;
         public double CottonMill;
         public double RichmondSchool;
@@ -32,7 +33,7 @@ namespace LogDataAnalysis
 
         }
 
-        public ExpandedOut(Dictionary<string, TimeSpan> data, TimeSpan textBoardTime, string condition, double totalTrialTime)
+        public ExpandedOut(Dictionary<string, TimeSpan> data, TimeSpan textBoardTime, string condition)//, double totalTrialTime)
         {
             Condition = condition;
             TotalViewingTime = 0;
@@ -65,7 +66,13 @@ namespace LogDataAnalysis
 
             TextBoard = textBoardTime.TotalSeconds;
             TotalBuildingSelected = data.Count;
-            TotalTrialTime = totalTrialTime;
+            //TotalTrialTime = totalTrialTime;
+        }
+
+        public ExpandedOut(Dictionary<string, TimeSpan> data, TimeSpan textBoardTime, string condition, string pid) : this(data, textBoardTime, condition)
+        {
+            this.Pid = pid;
+
         }
 
 

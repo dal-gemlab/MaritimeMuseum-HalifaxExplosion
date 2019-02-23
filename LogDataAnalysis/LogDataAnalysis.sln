@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogDataAnalysis", "LogDataAnalysis\LogDataAnalysis.csproj", "{2FA182E8-0954-4284-9EFA-791F10654B92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeSpanExtractor", "TimeSpanExtractor\TimeSpanExtractor.csproj", "{9C90E870-EC0A-4AE6-94DC-90A4312AE37D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2FA182E8-0954-4284-9EFA-791F10654B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FA182E8-0954-4284-9EFA-791F10654B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FA182E8-0954-4284-9EFA-791F10654B92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C90E870-EC0A-4AE6-94DC-90A4312AE37D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C90E870-EC0A-4AE6-94DC-90A4312AE37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C90E870-EC0A-4AE6-94DC-90A4312AE37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C90E870-EC0A-4AE6-94DC-90A4312AE37D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
