@@ -3,11 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ffme="clr-namespace:Unosquare.FFME;assembly=ffme.win"
+        
         xmlns:local="clr-namespace:ManualVideoTracker"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    
+        
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <MediaElement Name="MediaElement" LoadedBehavior="Manual" MouseLeftButtonDown="MediaElement_OnMouseLeftButtonDown"></MediaElement>
-    
+        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="4">
+            <TextBlock Text="Start"/>
+            <TextBox Name="StartTime" Text="00:00.0"></TextBox>
+            <TextBlock Text="End"/>
+            <TextBox Name="EndTime" Text="00:00.0"></TextBox>
+            <Separator Height="4"/>
+            <Button Content="Start" Click="StartClip"/>
+            <Separator Height="4"/>
+            <Button Content="HL Out" Click="HLOutOfFrame"/>
+            <Separator Height="4"/>
+            <Button Content="nHL Out" Click="nHLOutOfFrame"/>
+
+
+        </StackPanel>
+    </Grid>
+
 </Window>
