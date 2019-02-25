@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogDataAnalysis", "LogDataA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeSpanExtractor", "TimeSpanExtractor\TimeSpanExtractor.csproj", "{9C90E870-EC0A-4AE6-94DC-90A4312AE37D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManualVideoTracker", "ManualVideoTracker\ManualVideoTracker.csproj", "{B6A71DB2-BF1F-4594-8D77-0716C0BCABCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9C90E870-EC0A-4AE6-94DC-90A4312AE37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C90E870-EC0A-4AE6-94DC-90A4312AE37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C90E870-EC0A-4AE6-94DC-90A4312AE37D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A71DB2-BF1F-4594-8D77-0716C0BCABCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A71DB2-BF1F-4594-8D77-0716C0BCABCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A71DB2-BF1F-4594-8D77-0716C0BCABCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A71DB2-BF1F-4594-8D77-0716C0BCABCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
