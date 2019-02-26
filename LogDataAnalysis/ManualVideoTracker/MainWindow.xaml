@@ -15,6 +15,8 @@
         </Grid.ColumnDefinitions>
         <MediaElement Name="MediaElement" LoadedBehavior="Manual" MouseLeftButtonDown="MediaElement_OnMouseLeftButtonDown"></MediaElement>
         <StackPanel Grid.Column="1" Orientation="Vertical" Margin="4">
+            <TextBlock Text="Filename" Name="FilenameBox"/>
+            <Separator Height="4"/>
             <TextBlock Text="Start"/>
             <TextBox Name="StartTime" Text="00:00.0"></TextBox>
             <TextBlock Text="End"/>
@@ -22,9 +24,11 @@
             <Separator Height="4"/>
             <Button Content="Start" Click="StartClip"/>
             <Separator Height="4"/>
-            <Button Content="HL Out" Click="HLOutOfFrame"/>
+            <Button Content="Out" Click="OutOfFrame"/>
             <Separator Height="4"/>
-            <Button Content="nHL Out" Click="nHLOutOfFrame"/>
+            <TextBlock Name="FramesToGo"></TextBlock>
+            <Separator Height="4"/>
+            <TextBlock Name="CurrentPos"></TextBlock>
 
 
         </StackPanel>

@@ -52,6 +52,7 @@ namespace ManualVideoTracker
             if (openFileDialog.ShowDialog() == true)
             {
                 videoName = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+                FilenameBox.Text = videoName;
               
                 MediaElement.Source = new Uri(openFileDialog.FileName);
                 MediaElement.ScrubbingEnabled = true;
@@ -97,7 +98,11 @@ namespace ManualVideoTracker
 
         private void Skip(int seconds)
         {
-            MediaElement.Position += TimeSpan.FromSeconds(2);
+            if (MediaElement.Position == TimeSpan.Zero)
+                MediaElement.Position = startTimeTimeSpan;
+            MediaElement.Position += TimeSpan.FromSeconds(seconds);
+            FramesToGo.Text = ((endTimeTimeSpan - MediaElement.Position).TotalSeconds/ 2).ToString();
+            CurrentPos.Text = MediaElement.Position.ToString();
             if (MediaElement.Position > endTimeTimeSpan)
             {
                 if (currentTarget == CurrentTarget.HoloLens)
@@ -119,34 +124,43 @@ namespace ManualVideoTracker
 
         private void StartClip(object sender, RoutedEventArgs e)
         {
-            startTimeTimeSpan = TimeSpan.ParseExact(StartTime.Text, "mm':'ss'.'f", null);
-            endTimeTimeSpan= TimeSpan.ParseExact(EndTime.Text, "mm':'ss'.'f", null);
-            MediaElement.Position = startTimeTimeSpan;
-            MediaElement.Pause();
+            startTimeTimeSpan = TimeSpan.ParseExact(StartTime.Text, "m':'ss'.'f", null);
+            endTimeTimeSpan= TimeSpan.ParseExact(EndTime.Text, "m':'ss'.'f", null);
             
+            MediaElement.Pause();
+            MediaElement.Position = startTimeTimeSpan;
+            CurrentPos.Text = MediaElement.Position.ToString();
+
         }
 
-        private void HLOutOfFrame(object sender, RoutedEventArgs e)
+        private void OutOfFrame(object sender, RoutedEventArgs e)
         {
-            currentTracker = new TrackerCSV
+            if (currentTarget == CurrentTarget.HoloLens)
             {
-                HL_x = -1,
-                HL_y = -1,
-            };
-        }
-
-        private void nHLOutOfFrame(object sender, RoutedEventArgs e)
-        {
-            currentTracker.nHL_x = -1;
-            currentTracker.nHL_y = -1;
-            positions.Add(currentTracker);
-            currentTracker = null;
+                currentTracker = new TrackerCSV
+                {
+                    HL_x = -1,
+                    HL_y = -1
+                };
+                positions.Add(currentTracker);
+            }
+            else
+            {
+                if (positionIndex < positions.Count)
+                {
+                    positions[positionIndex].nHL_x = -1;
+                    positions[positionIndex].nHL_y = -1;
+                    positionIndex++;
+                }
+            }
             Skip(SKIPTIME);
         }
+
 
         private void Save()
         {
             engine = new FileHelperEngine<TrackerCSV>();
+            engine.HeaderText = engine.GetFileHeader();
             engine.WriteFile($"{videoName}.csv",positions);
         }
 
